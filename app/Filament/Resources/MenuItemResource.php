@@ -2,30 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PostResource\Pages;
-use App\Models\Post;
-use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\DatePicker;
+use App\Filament\Resources\MenuItemResource\Pages;
+use App\Models\MenuItem;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class PostResource extends Resource
+class MenuItemResource extends Resource
 {
-    protected static ?string $model = Post::class;
+    protected static ?string $model = MenuItem::class;
 
-    protected static ?string $modelLabel = 'News';
-
-    protected static ?int $navigationSort = 1;
-
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -44,8 +37,9 @@ class PostResource extends Resource
                             ->maxLength(255)
                             ->required(),
 
-                        RichEditor::make('content')
+                        TagsInput::make('tags')
                             ->required(),
+
                     ]),
 
                 ])->columnSpan(2),
@@ -55,22 +49,10 @@ class PostResource extends Resource
                         FileUpload::make('image')
                             ->label('')
                             ->disk('public')
-                            ->directory('uploads/posts')
+                            ->directory('uploads/menu')
                             ->required(),
                     ]),
-
-                    Section::make('Publish policy')->schema([
-                        DatePicker::make('published_at'),
-                        DatePicker::make('unpublished_at'),
-                        Select::make('priority')
-                            ->options([
-                                '1' => 'High',
-                                '2' => 'Medium',
-                                '3' => 'Low',
-                            ])->default(2),
-                        // Checkbox::make('archive'),
-                    ]),
-                ]),
+                ])->columnSpan(1),
 
             ])->columns(3);
     }
@@ -104,9 +86,9 @@ class PostResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPosts::route('/'),
-            'create' => Pages\CreatePost::route('/create'),
-            'edit' => Pages\EditPost::route('/{record}/edit'),
+            'index' => Pages\ListMenuItems::route('/'),
+            'create' => Pages\CreateMenuItem::route('/create'),
+            'edit' => Pages\EditMenuItem::route('/{record}/edit'),
         ];
     }
 }
