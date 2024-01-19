@@ -31,6 +31,7 @@ class MenuCategoryResource extends Resource
                     TextInput::make('name')
                         ->minLength(5)
                         ->maxLength(255)
+                        ->unique()
                         ->required()
                         ->columnSpan(3),
 
@@ -61,6 +62,9 @@ class MenuCategoryResource extends Resource
             ->columns([
                 TextColumn::make('order')->sortable(),
                 TextColumn::make('name')->sortable(),
+                TextColumn::make('countMenuItems')
+                    ->label('Items')
+                    ->sortable(),
             ])
             ->filters([
                 //

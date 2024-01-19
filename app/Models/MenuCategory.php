@@ -24,9 +24,13 @@ class MenuCategory extends Model
                 ->withTimestamps();
     }
 
+    public function getCountMenuItemsAttribute()
+    {
+        return $this->menuItems()->count();
+    }
+
     public static function highestAvailableOrder()
     {
         return self::max('order') + 1;
     
-    }
-}
+    }}
