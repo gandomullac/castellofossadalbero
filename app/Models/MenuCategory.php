@@ -13,8 +13,14 @@ class MenuCategory extends Model
 
     public function menuItems()
     {
-        return $this->belongsToMany(MenuItem::class, 'menu_item_menu_type')
-            ->withPivot(['order'])
-            ->withTimestamps();
+        return $this->belongsToMany
+            (
+                related:MenuItem::class,
+                table:'menu_item_menu_category',
+                foreignPivotKey:'menu_item_id',
+                relatedPivotKey:'menu_category_id'
+            )
+                ->withPivot(['order'])
+                ->withTimestamps();
     }
 }

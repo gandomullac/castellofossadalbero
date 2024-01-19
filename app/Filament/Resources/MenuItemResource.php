@@ -66,15 +66,15 @@ class MenuItemResource extends Resource
                             ->directory('uploads/menu')
                             ->nullable(),
                     ]),
+ 
+                    Section::make('Menu')->schema([
+                        Select::make('menu_category_id')
+                            ->relationship('menuCategories', 'name')
+                            ->searchable()
+                            ->multiple()
+                            ->preload(),
+                    ]),
                 ])->columnSpan(1),
-
-                // Group::make()->schema([
-                //     Section::make('Menu')->schema([
-                //         Select::make('menu_category_id')
-                //         ->relationship('menu_categories', 'name')
-                //         ->preload(),
-                //     ]),
-                // ])->columnSpan(1),
 
             ])->columns(3);
     }
