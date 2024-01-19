@@ -20,7 +20,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
-
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class AttachmentResource extends Resource
 {
@@ -34,18 +34,14 @@ class AttachmentResource extends Resource
             ->schema([
                 Group::make()->schema([
                     Section::make('Attachment')->schema([
-                        // TextInput::make('name')
-                        //     ->minLength(5)
-                        //     ->columnSpan(1)
-                        //     ->required(),
-                            
-
-
                         FileUpload::make('path')
                             ->label('File')
                             ->disk('public')
                             ->directory('uploads/attachments')
-                            ->preserveFilenames()
+                            ->getUploadedFileNameForStorageUsing(
+                                fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                                    ->prepend(now()->timestamp . '_'),
+                            )
                             ->storeFileNamesIn('name')
                             ->columnSpan(1)
                             ->required(),
@@ -79,6 +75,10 @@ class AttachmentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->before(function ($record) {
+                        $record->deleteFile();
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -59,8 +59,8 @@ class MenuCategoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable(),
                 TextColumn::make('order')->sortable(),
+                TextColumn::make('name')->sortable(),
             ])
             ->filters([
                 //

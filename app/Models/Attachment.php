@@ -24,4 +24,9 @@ class Attachment extends Model
 
         return number_format($size, 2); 
     }
+
+    public function deleteFile()
+    {
+        return Storage::delete('public/' . $this->path);
+    }
 }
