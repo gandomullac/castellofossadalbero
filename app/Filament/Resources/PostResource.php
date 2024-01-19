@@ -54,6 +54,7 @@ class PostResource extends Resource
                     Section::make('Image')->schema([
                         FileUpload::make('image')
                             ->label('')
+                            // ->avatar()
                             ->disk('public')
                             ->directory('uploads/posts')
                             ->required(),

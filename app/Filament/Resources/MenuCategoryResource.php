@@ -18,8 +18,10 @@ use Filament\Tables\Table;
 class MenuCategoryResource extends Resource
 {
     protected static ?string $model = MenuCategory::class;
+    
+    protected static ?string $navigationGroup = 'Menu';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bars-3';
 
     public static function form(Form $form): Form
     {
