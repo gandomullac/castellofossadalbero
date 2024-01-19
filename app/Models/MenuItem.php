@@ -11,6 +11,10 @@ class MenuItem extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
     public function menuCategories()
     {
         return $this->belongsToMany(MenuCategory::class, 'menu_item_menu_categories')

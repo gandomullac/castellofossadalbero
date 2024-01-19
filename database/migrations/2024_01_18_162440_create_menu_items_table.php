@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->unsignedFloat('price');
-            $table->string('image');
-            $table->foreignIdFor(MenuCategory::class);
+            $table->string('image')->nullable();
             $table->json('tags')->nullable();
 
             $table->timestamps();

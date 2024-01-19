@@ -7,11 +7,13 @@ use App\Models\MenuItem;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class MenuItemResource extends Resource
@@ -30,17 +32,29 @@ class MenuItemResource extends Resource
                         TextInput::make('title')
                             ->minLength(5)
                             ->maxLength(255)
-                            ->required(),
+                            ->required()
+                            ->columnSpanFull(),
 
                         TextInput::make('subtitle')
                             ->minLength(5)
                             ->maxLength(255)
-                            ->required(),
+                            ->required()
+                            ->columnSpanFull(),
+                            
+                        TextInput::make('price')
+                            ->prefix('€')
+                            ->numeric()
+                            ->minValue(0)
+                            ->maxValue(100)
+                            ->required()
+                            ->columnSpan(2),
 
                         TagsInput::make('tags')
-                            ->required(),
+                            ->required()
+                            ->columnSpan(3),
 
-                    ]),
+
+                    ])->columns(5),
 
                 ])->columnSpan(2),
 
@@ -50,9 +64,17 @@ class MenuItemResource extends Resource
                             ->label('')
                             ->disk('public')
                             ->directory('uploads/menu')
-                            ->required(),
+                            ->nullable(),
                     ]),
                 ])->columnSpan(1),
+
+                // Group::make()->schema([
+                //     Section::make('Menu')->schema([
+                //         Select::make('menu_category_id')
+                //         ->relationship('menu_categories', 'name')
+                //         ->preload(),
+                //     ]),
+                // ])->columnSpan(1),
 
             ])->columns(3);
     }
@@ -61,13 +83,18 @@ class MenuItemResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title')
+                    ->sortable(),
+                TextColumn::make('price')
+                    ->prefix('€ ')
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
