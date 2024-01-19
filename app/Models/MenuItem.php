@@ -9,6 +9,8 @@ class MenuItem extends Model
 {
     use HasFactory;
 
+    const FOOD_PLACEHOLDER = 'storage/food_placeholder.jpg';
+
     protected $guarded = [];
 
     protected $casts = [
@@ -27,4 +29,11 @@ class MenuItem extends Model
             ->withPivot(['order'])
             ->withTimestamps();
     }
+
+    // a mutator to change the image path value if null. I neet this to overload the normal attribute.
+    public function getImageAttribute($value)
+    {
+        return $value ?? asset(self::FOOD_PLACEHOLDER);
+    }
+
 }

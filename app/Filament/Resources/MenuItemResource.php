@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -64,6 +65,7 @@ class MenuItemResource extends Resource
                     Section::make('Image')->schema([
                         FileUpload::make('image')
                             ->label('')
+                            ->avatar()
                             ->disk('public')
                             ->directory('uploads/menu')
                             ->nullable(),
@@ -85,11 +87,14 @@ class MenuItemResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('image')
+                    ->toggleable(),
                 TextColumn::make('title')
                     ->sortable(),
                 TextColumn::make('price')
                     ->prefix('€ ')
                     ->sortable(),
+                TextColumn::make('menuCategories.name')
             ])
             ->filters([
                 //
