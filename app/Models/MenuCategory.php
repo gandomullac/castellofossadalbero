@@ -23,4 +23,10 @@ class MenuCategory extends Model
                 ->withPivot(['order'])
                 ->withTimestamps();
     }
+
+    public static function highestAvailableOrder()
+    {
+        return self::max('order') + 1;
+    
+    }
 }

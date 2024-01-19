@@ -8,6 +8,8 @@ use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -34,6 +36,16 @@ class MenuCategoryResource extends Resource
                         ->numeric()
                         ->minValue(0)
                         ->maxValue(10)
+                        ->default(MenuCategory::highestAvailableOrder())
+                        ->afterStateHydrated(function (string $operation, string $state, Set $set, Get $get) {
+                            if ($operation === 'edit') {
+                                return;
+                            }
+
+                            // ad ogni submit aggiorno il valore di order.
+                            $set('order', MenuCategory::highestAvailableOrder());
+
+                        })
                         ->required()
                         ->columnSpan(1),
                 ])->columns(4),
