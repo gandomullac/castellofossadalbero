@@ -13,15 +13,14 @@ class MenuCategory extends Model
 
     public function menuItems()
     {
-        return $this->belongsToMany
-            (
-                related:MenuItem::class,
-                table:'menu_item_menu_category',
-                foreignPivotKey:'menu_item_id',
-                relatedPivotKey:'menu_category_id'
-            )
-                ->withPivot(['order'])
-                ->withTimestamps();
+        return $this->belongsToMany(
+            related: MenuItem::class,
+            table: 'menu_item_menu_category',
+            foreignPivotKey: 'menu_item_id',
+            relatedPivotKey: 'menu_category_id'
+        )
+            ->withPivot(['order'])
+            ->withTimestamps();
     }
 
     public function getCountMenuItemsAttribute()
@@ -32,5 +31,6 @@ class MenuCategory extends Model
     public static function highestAvailableOrder()
     {
         return self::max('order') + 1;
-    
-    }}
+
+    }
+}

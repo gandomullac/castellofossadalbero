@@ -19,13 +19,12 @@ class MenuItem extends Model
 
     public function menuCategories()
     {
-        return $this->belongsToMany
-            (
-                related:MenuCategory::class,
-                table:'menu_item_menu_category',
-                foreignPivotKey:'menu_category_id',
-                relatedPivotKey:'menu_item_id'
-            )
+        return $this->belongsToMany(
+            related: MenuCategory::class,
+            table: 'menu_item_menu_category',
+            foreignPivotKey: 'menu_category_id',
+            relatedPivotKey: 'menu_item_id'
+        )
             ->withPivot(['order'])
             ->withTimestamps();
     }
@@ -35,5 +34,4 @@ class MenuItem extends Model
     {
         return $value ?? asset(self::FOOD_PLACEHOLDER);
     }
-
 }

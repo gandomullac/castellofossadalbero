@@ -22,7 +22,7 @@ class MenuItemResource extends Resource
     protected static ?string $model = MenuItem::class;
 
     protected static ?string $navigationGroup = 'Menu';
-    
+
     protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 
     public static function form(Form $form): Form
@@ -43,7 +43,7 @@ class MenuItemResource extends Resource
                             ->maxLength(255)
                             ->required()
                             ->columnSpanFull(),
-                            
+
                         TextInput::make('price')
                             ->prefix('€')
                             ->numeric()
@@ -55,7 +55,6 @@ class MenuItemResource extends Resource
                         TagsInput::make('tags')
                             ->required()
                             ->columnSpan(3),
-
 
                     ])->columns(5),
 
@@ -70,7 +69,7 @@ class MenuItemResource extends Resource
                             ->directory('uploads/menu')
                             ->nullable(),
                     ]),
- 
+
                     Section::make('Menu')->schema([
                         Select::make('menu_category_id')
                             ->relationship('menuCategories', 'name')
@@ -94,7 +93,7 @@ class MenuItemResource extends Resource
                 TextColumn::make('price')
                     ->prefix('€ ')
                     ->sortable(),
-                TextColumn::make('menuCategories.name')
+                TextColumn::make('menuCategories.name'),
             ])
             ->filters([
                 //

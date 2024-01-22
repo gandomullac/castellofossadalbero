@@ -3,23 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AttachmentResource\Pages;
-use App\Filament\Resources\AttachmentResource\RelationManagers;
 use App\Models\Attachment;
-use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class AttachmentResource extends Resource
@@ -40,7 +32,7 @@ class AttachmentResource extends Resource
                             ->directory('uploads/attachments')
                             ->getUploadedFileNameForStorageUsing(
                                 fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                                    ->prepend(now()->timestamp . '_'),
+                                    ->prepend(now()->timestamp.'_'),
                             )
                             ->storeFileNamesIn('name')
                             ->columnSpan(1)
@@ -78,12 +70,12 @@ class AttachmentResource extends Resource
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         $record->deleteFile();
-                }),
+                    }),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                    Tables\Actions\BulkActionGroup::make([
+                        Tables\Actions\DeleteBulkAction::make(),
+                    ]),
             ]);
     }
 

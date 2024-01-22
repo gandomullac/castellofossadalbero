@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
-use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -16,7 +15,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
-use Filament\Support\Enums\Alignment;
 use Filament\Tables;
 use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -88,30 +86,28 @@ class PostResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
-                ->toggleable(),
+                    ->toggleable(),
                 TextColumn::make('title')
-                ->sortable(),
+                    ->sortable(),
                 TextColumn::make('subtitle'),
                 TextColumn::make('publishStatus')
-                ->badge()
-                ->color(fn (string $state): string => match ($state) {
-                    'expired' => 'gray',
-                    'draft' => 'warning',
-                    'published' => 'success',
-                    'archived' => 'danger',
-                })
-                    
-                ->sortable(),
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'expired' => 'gray',
+                        'draft' => 'warning',
+                        'published' => 'success',
+                        'archived' => 'danger',
+                    })
+                    ->sortable(),
                 TextColumn::make('created_at')->date(),
 
                 CheckboxColumn::make('archived')
-                ->label('Archive')
-                ->afterStateUpdated(function (string $state, Set $set) {
-                    if($state == 'true') {
-                        $set('publishStatus', 'archived');
-                    }
-                }),
-
+                    ->label('Archive')
+                    ->afterStateUpdated(function (string $state, Set $set) {
+                        if ($state == 'true') {
+                            $set('publishStatus', 'archived');
+                        }
+                    }),
 
             ])
             ->filters([
@@ -119,7 +115,6 @@ class PostResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                
 
             ])
             ->bulkActions([
