@@ -78,7 +78,7 @@ class AttachmentResource extends Resource
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         $record->deleteFile();
-                    }),
+                }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

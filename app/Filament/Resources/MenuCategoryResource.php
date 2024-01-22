@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MenuCategoryResource\Pages;
+use App\Filament\Resources\MenuCategoryResource\RelationManagers\MenuItemsRelationManager;
 use App\Models\MenuCategory;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
@@ -83,7 +84,7 @@ class MenuCategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            MenuItemsRelationManager::class,
         ];
     }
 

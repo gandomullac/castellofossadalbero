@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
+use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -13,8 +14,13 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\Alignment;
 use Filament\Tables;
+use Filament\Tables\Columns\CheckboxColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class PostResource extends Resource
@@ -51,7 +57,7 @@ class PostResource extends Resource
                 ])->columnSpan(2),
 
                 Group::make()->schema([
-                    Section::make('Image')->schema([
+                    Section::make('image')->schema([
                         FileUpload::make('image')
                             ->label('')
                             // ->avatar()
@@ -63,13 +69,14 @@ class PostResource extends Resource
                     Section::make('Publish policy')->schema([
                         DatePicker::make('published_at'),
                         DatePicker::make('unpublished_at'),
-                        Select::make('priority')
+                        Select::make('order')
+                            ->label('Priority')
                             ->options([
                                 '1' => 'High',
                                 '2' => 'Medium',
                                 '3' => 'Low',
                             ])->default(2),
-                        // Checkbox::make('archive'),
+                        Checkbox::make('archived'),
                     ]),
                 ]),
 
@@ -80,13 +87,40 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                ImageColumn::make('image')
+                ->toggleable(),
+                TextColumn::make('title')
+                ->sortable(),
+                TextColumn::make('subtitle'),
+                TextColumn::make('publishStatus')
+                ->badge()
+                ->color(fn (string $state): string => match ($state) {
+                    'expired' => 'gray',
+                    'draft' => 'warning',
+                    'published' => 'success',
+                    'archived' => 'danger',
+                })
+                    
+                ->sortable(),
+                TextColumn::make('created_at')->date(),
+
+                CheckboxColumn::make('archived')
+                ->label('Archive')
+                ->afterStateUpdated(function (string $state, Set $set) {
+                    if($state == 'true') {
+                        $set('publishStatus', 'archived');
+                    }
+                }),
+
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
