@@ -24,6 +24,9 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->brandName('Castello di Fossadalbero')
+            ->favicon(asset('storage/logo/favicon.png'))
+            // ->brandLogo(asset('storage/logo/logo.png'))
             ->id('admin')
             ->path('admin')
             ->login()

@@ -49,10 +49,12 @@ class AttachmentResource extends Resource
                 TextColumn::make('name')
                     ->label('Name')
                     ->searchable()
+                    ->wrap()
                     ->sortable(),
                 TextColumn::make('fileUrl')
                     ->label('File URL')
                     ->url(fn ($record) => $record->file)
+                    ->wrap()
                     ->sortable(),
                 TextColumn::make('fileSize')
                     ->suffix(' MB')
