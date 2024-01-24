@@ -64,7 +64,6 @@ class AttachmentResource extends Resource
                     ->dateTime()
                     ->sortable(),
 
-
             ])
             ->filters([
                 //
