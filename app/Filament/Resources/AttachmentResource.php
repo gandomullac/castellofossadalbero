@@ -53,7 +53,7 @@ class AttachmentResource extends Resource
                     ->sortable(),
                 TextColumn::make('fileUrl')
                     ->label('File URL')
-                    ->url(fn ($record) => $record->file)
+                    ->url(fn ($record) => url($record->fileUrl))
                     ->wrap()
                     ->sortable(),
                 TextColumn::make('fileSize')
@@ -63,6 +63,8 @@ class AttachmentResource extends Resource
                     ->label('Created At')
                     ->dateTime()
                     ->sortable(),
+
+
             ])
             ->filters([
                 //
