@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('subtitle');
+            $table->string('subtitle')->nullable();
             $table->string('content');
             $table->string('image');
-            $table->unsignedInteger('order');
+            $table->unsignedInteger('priority')->default(0);
 
             $table->date('published_at')->nullable();
             $table->date('unpublished_at')->nullable();
 
-            $table->boolean('archived')->default(true);
+            $table->boolean('archived')->default(false);
         });
     }
 

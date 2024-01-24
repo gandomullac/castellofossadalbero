@@ -17,6 +17,7 @@ use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\CheckboxColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -44,9 +45,7 @@ class PostResource extends Resource
                             ->required(),
 
                         TextInput::make('subtitle')
-                            ->minLength(5)
-                            ->maxLength(255)
-                            ->required(),
+                            ->maxLength(100),
 
                         RichEditor::make('content')
                             ->required(),
@@ -55,24 +54,24 @@ class PostResource extends Resource
                 ])->columnSpan(2),
 
                 Group::make()->schema([
-                    Section::make('image')->schema([
-                        FileUpload::make('image')
-                            ->label('')
-                            // ->avatar()
-                            ->disk('public')
-                            ->directory('uploads/posts')
-                            ->required(),
-                    ]),
+                    Section::make('Image')
+                        ->schema([
+                            FileUpload::make('image')
+                                ->label('')
+                                // ->avatar()
+                                ->disk('public')
+                                ->directory('uploads/posts')
+                                ->required(),
+                        ]),
 
                     Section::make('Publish policy')->schema([
                         DatePicker::make('published_at'),
                         DatePicker::make('unpublished_at'),
-                        Select::make('order')
-                            ->label('Priority')
+                        Select::make('priority')
                             ->options([
-                                '1' => 'High',
-                                '2' => 'Medium',
-                                '3' => 'Low',
+                                1 => 'High',
+                                0 => 'Medium',
+                                -1 => 'Low',
                             ])->default(2),
                         Checkbox::make('archived'),
                     ]),
@@ -88,8 +87,11 @@ class PostResource extends Resource
                 ImageColumn::make('image')
                     ->toggleable(),
                 TextColumn::make('title')
+                    // ->description(fn (Post $record): string => $record->excerpt)
+                    ->wrap()
                     ->sortable(),
-                TextColumn::make('subtitle'),
+                TextColumn::make('subtitle')
+                    ->wrap(),
                 TextColumn::make('publishStatus')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
@@ -99,7 +101,14 @@ class PostResource extends Resource
                         'archived' => 'danger',
                     })
                     ->sortable(),
-                TextColumn::make('created_at')->date(),
+                // TextColumn::make('created_at')->date(),
+                IconColumn::make('priority')
+                    ->sortable()
+                    ->icon(fn (string $state): string => match ($state) {
+                        '1' => 'heroicon-o-arrow-up-circle',
+                        '0' => 'heroicon-o-minus-circle',
+                        '-1' => 'heroicon-o-arrow-down-circle',
+                    }),
 
                 CheckboxColumn::make('archived')
                     ->label('Archive')
@@ -109,7 +118,7 @@ class PostResource extends Resource
                         }
                     }),
 
-            ])
+            ])->defaultSort('Priority','desc')
             ->filters([
                 //
             ])

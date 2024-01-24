@@ -23,7 +23,7 @@ class Post extends Model
 
     public function isExpired()
     {
-        return $this->published_at <= now();
+        return $this->published_at <= now() && $this->published_at != null;
     }
 
     public function getPublishStatusAttribute()
@@ -37,5 +37,16 @@ class Post extends Model
         }
 
         return 'published';
+    }
+
+    // method to show a short excerpt of the post, without html tags
+
+    public function getExcerptAttribute()
+    {
+
+        $content = strip_tags($this->content);
+
+        return substr($content, 0, 60).'...';
+
     }
 }
