@@ -118,7 +118,7 @@ class PostResource extends Resource
                         }
                     }),
 
-            ])->defaultSort('Priority','desc')
+            ])->defaultSort('Priority', 'desc')
             ->filters([
                 //
             ])
