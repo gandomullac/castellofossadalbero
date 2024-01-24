@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MenuCategoryResource\Pages;
 use App\Filament\Resources\MenuCategoryResource\RelationManagers\MenuItemsRelationManager;
 use App\Models\MenuCategory;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
@@ -13,6 +14,7 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -52,7 +54,12 @@ class MenuCategoryResource extends Resource
                         })
                         ->required()
                         ->columnSpan(1),
-                ])->columns(4),
+
+                    ColorPicker::make('color')
+                        ->nullable()
+                        ->columnSpan(1),
+
+                ])->columns(5),
             ])->columnSpanFull(),
         ]);
     }
@@ -63,6 +70,7 @@ class MenuCategoryResource extends Resource
             ->columns([
                 TextColumn::make('order')->sortable(),
                 TextColumn::make('name')->sortable(),
+                ColorColumn::make('color'),
                 TextColumn::make('countMenuItems')
                     ->label('Items')
                     ->sortable(),
