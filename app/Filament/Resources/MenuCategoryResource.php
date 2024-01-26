@@ -24,6 +24,8 @@ class MenuCategoryResource extends Resource
 
     protected static ?string $navigationGroup = 'Menu';
 
+    protected static ?int $navigationSort = 4;
+
     protected static ?string $navigationIcon = 'heroicon-o-bars-3';
 
     public static function form(Form $form): Form

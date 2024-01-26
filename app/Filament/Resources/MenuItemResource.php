@@ -23,6 +23,8 @@ class MenuItemResource extends Resource
 
     protected static ?string $navigationGroup = 'Menu';
 
+    protected static ?int $navigationSort = 5;
+
     protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 
     public static function form(Form $form): Form

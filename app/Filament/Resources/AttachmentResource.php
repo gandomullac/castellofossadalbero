@@ -18,6 +18,10 @@ class AttachmentResource extends Resource
 {
     protected static ?string $model = Attachment::class;
 
+    protected static ?string $navigationGroup = 'Website';
+
+    protected static ?int $navigationSort = 3;
+
     protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
 
     public static function form(Form $form): Form

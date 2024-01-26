@@ -28,6 +28,8 @@ class PostResource extends Resource
 
     protected static ?string $modelLabel = 'News';
 
+    protected static ?string $navigationGroup = 'Website';
+
     protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
