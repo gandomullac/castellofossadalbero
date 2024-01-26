@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\CustomDashboard;
 use App\Filament\Resources\PostResource\Widgets\PostsOverview;
+use App\Filament\Resources\ReviewResource\Widgets\ReviewsOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -47,6 +48,7 @@ class AdminPanelProvider extends PanelProvider
                 // Widgets\AccountWidget::class,
                 // Widgets\FilamentInfoWidget::class,
                 PostsOverview::class,
+                ReviewsOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,
