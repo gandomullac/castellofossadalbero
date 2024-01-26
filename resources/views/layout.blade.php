@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href={{ asset("assets/img/favicon.png") }} rel="icon">
+    {{-- <link href={{ asset("assets/img/apple-touch-icon.png") }} rel="apple-touch-icon"> --}}
 
     <!-- Google Fonts -->
     <link
@@ -30,12 +30,26 @@
     <!-- Template Main CSS File -->
     <link href={{ asset("assets/css/style.css") }} rel="stylesheet">
 
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b0ec5dfa-b556-47c8-aedb-a5f3c5940792"
-        data-blockingmode="auto" type="text/javascript"></script>
+    {{-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b0ec5dfa-b556-47c8-aedb-a5f3c5940792"
+        data-blockingmode="auto" type="text/javascript"></script> --}}
 </head>
 
 <body>
 
+    @include('topbar')
+
+    @include('navbar')
+    
+    @include('hero')
+
+    <main id="main">
+
+        @include('main.about')
+        
+        {{-- @include('main.gallery') --}}
+
+
+    </main>
 
 
     @include('footer')
