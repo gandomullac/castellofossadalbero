@@ -1,9 +1,27 @@
+<style>
+    .about:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.8); 
+    }
+
+
+</style>
+
+
+
 <section id="about" class="about" style="
-        background: url('{{ asset('assets/img/CastelloNotte.jpg') }}') center center;
+        background: url('{{ asset('assets/img/CastelloNotteLow.jpg') }}') center center;
         background-size: cover;
         position: relative;
         padding: 80px 0;
     ">
+
+
     <div class="container" data-aos="fade-up">
 
         <div class="row">

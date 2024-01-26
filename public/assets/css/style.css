@@ -765,6 +765,12 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+/* .about {
+  background: url("../img/CastellonotteLOW.jpg") center center;
+  background-size: cover;
+  position: relative;
+  padding: 80px 0;
+} */
 
 .about:before {
   content: "";
