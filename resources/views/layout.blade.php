@@ -46,7 +46,7 @@
 
         @include('main.about')
         
-        {{-- @include('main.gallery') --}}
+        @include('main.gallery')
 
 
     </main>
