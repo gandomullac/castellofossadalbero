@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 
 class AttachmentResource extends Resource
 {
@@ -52,14 +53,19 @@ class AttachmentResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->label('Name')
+                    ->url(fn ($record) => url($record->fileUrl))
                     ->searchable()
                     ->wrap()
                     ->sortable(),
                 TextColumn::make('fileUrl')
                     ->label('File URL')
-                    ->url(fn ($record) => url($record->fileUrl))
                     ->wrap()
                     ->sortable(),
+                CopyableTextColumn::make('fileUrl')
+                    ->label('Copy File URL')
+                    ->copyMessage('URL copied to clipboard')
+                    ->onlyIcon()
+                    ->toggleable(),
                 TextColumn::make('fileSize')
                     ->suffix(' MB')
                     ->sortable(),
@@ -73,7 +79,7 @@ class AttachmentResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         $record->deleteFile();
