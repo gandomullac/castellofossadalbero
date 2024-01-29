@@ -63,11 +63,17 @@
             @include('main.events')
         @endif
 
-        @include('main.menu')
+        @if ($menuItems->count() > 0)
+            @include('main.menu')
+        @endif
 
         <hr class="solid">
 
-        @include('main.reviews')
+        @if ($reviews->count() > 0)
+            @include('main.reviews')
+        @endif
+
+        @include('main.contact-us')
 
     </main>
 
