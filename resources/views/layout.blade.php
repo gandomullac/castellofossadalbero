@@ -1,3 +1,6 @@
+{{-- {{ dd($events) }} --}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,6 +51,13 @@
         
         @include('main.gallery')
 
+        @include('main.why-us')
+
+        {{-- @include('main.swimming-pool') --}}
+
+        @include('main.specials')
+        
+        @includeUnless('main.events', ['events' => null])
 
     </main>
 

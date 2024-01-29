@@ -1,4 +1,17 @@
-<section id="hero" class="d-flex align-items-center" style="background: url('{{ asset('assets/img/foto aerea CFA.jpg') }}') top center">
+<style>
+    #hero {
+        width: 100%;
+        height: 100vh;
+        background: url('{{ asset('assets/img/foto aerea CFA.jpg') }}') top center;
+        background-size: cover;
+        position: relative;
+        padding: 0;
+    }
+
+    
+</style>
+
+<section id="hero" class="d-flex align-items-center" style="">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
         <div class="row">
             <div class="col-lg-8">

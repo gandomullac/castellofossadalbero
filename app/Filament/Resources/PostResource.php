@@ -63,7 +63,7 @@ class PostResource extends Resource
                                 // ->avatar()
                                 ->disk('public')
                                 ->directory('uploads/posts')
-                                ->required(),
+                                ->required()
                         ]),
 
                     Section::make('Publish policy')->schema([
@@ -74,7 +74,7 @@ class PostResource extends Resource
                                 1 => 'High',
                                 0 => 'Medium',
                                 -1 => 'Low',
-                            ])->default(2),
+                            ])->default(0),
                         Checkbox::make('archived'),
                     ]),
                 ]),
