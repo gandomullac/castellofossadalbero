@@ -9,7 +9,7 @@ class MenuItem extends Model
 {
     use HasFactory;
 
-    const FOOD_PLACEHOLDER = 'storage/food_placeholder.jpg';
+    const FOOD_PLACEHOLDER = 'img/food_placeholder.jpg';
 
     protected $guarded = [];
 

@@ -1,4 +1,6 @@
 {{-- {{ dd($events) }} --}}
+{{-- {{ dd($menuItems) }} --}}
+
 
 
 <!DOCTYPE html>
@@ -57,7 +59,11 @@
 
         @include('main.specials')
         
-        @include('main.events')
+        @if ($events->count() > 0)
+            @include('main.events')
+        @endif
+
+        @include('main.menu')
 
     </main>
 

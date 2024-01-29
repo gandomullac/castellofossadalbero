@@ -43,7 +43,7 @@ class MenuItemResource extends Resource
                         TextInput::make('subtitle')
                             ->minLength(5)
                             ->maxLength(255)
-                            ->required()
+                            // ->required()
                             ->columnSpanFull(),
 
                         TextInput::make('price')
@@ -77,7 +77,8 @@ class MenuItemResource extends Resource
                             ->relationship('menuCategories', 'name')
                             ->searchable()
                             ->multiple()
-                            ->preload(),
+                            ->preload()
+                            ->required(),
                     ]),
                 ])->columnSpan(1),
 

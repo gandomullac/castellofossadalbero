@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class MenuCategory extends Model
 {
@@ -26,6 +27,11 @@ class MenuCategory extends Model
     public function getCountMenuItemsAttribute()
     {
         return $this->menuItems()->count();
+    }
+
+    public function getSlugAttribute()
+    {
+        return Str::slug($this->name);
     }
 
     public static function highestAvailableOrder()
