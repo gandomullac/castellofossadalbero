@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MenuCategory;
 use App\Models\MenuItem;
 use App\Models\Post;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 
@@ -17,7 +18,14 @@ class PageController extends Controller
         $events = Post::published()->orderBy('order')->get();
         $menuItems = MenuItem::all();
         $menuCategories = MenuCategory::all();
+        $reviews = Review::all();
 
-        return view('layout', compact('settings', 'events', 'menuItems', 'menuCategories'));
+        return view('layout', compact(
+            'settings',
+            'events',
+            'menuItems', 
+            'menuCategories',
+            'reviews'
+        ));
     }
 }

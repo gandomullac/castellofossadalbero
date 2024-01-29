@@ -65,6 +65,10 @@
 
         @include('main.menu')
 
+        <hr class="solid">
+
+        @include('main.reviews')
+
     </main>
 
 

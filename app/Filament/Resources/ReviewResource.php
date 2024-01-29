@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReviewResource\Pages;
 use App\Models\Review;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -49,7 +48,7 @@ class ReviewResource extends Resource
                         ->required()
                         ->columnSpan(2),
 
-                    RichEditor::make('content')
+                    TextInput::make('content')
                         ->required()
                         ->columnSpanFull(),
 
