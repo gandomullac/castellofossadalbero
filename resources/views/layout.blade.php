@@ -57,7 +57,7 @@
 
         @include('main.specials')
         
-        @includeUnless('main.events', ['events' => null])
+        @include('main.events')
 
     </main>
 
