@@ -29,9 +29,19 @@ class MenuItem extends Model
             ->withTimestamps();
     }
 
-    // a mutator to change the image path value if null. I neet this to overload the normal attribute.
+    public function allergens()
+    {
+        return $this->belongsToMany(
+            related: Allergen::class,
+            table: 'allergen_menu_item',
+            foreignPivotKey: 'allergen_id',
+            relatedPivotKey: 'menu_item_id'
+        );
+    }
+
     public function getImageAttribute($value)
     {
         return $value ?? asset(self::FOOD_PLACEHOLDER);
     }
+    
 }

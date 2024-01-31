@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MenuItemResource\Pages;
 use App\Models\MenuItem;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
@@ -13,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -46,17 +48,11 @@ class MenuItemResource extends Resource
                             // ->required()
                             ->columnSpanFull(),
 
-                        TextInput::make('price')
-                            ->prefix('€')
-                            ->numeric()
-                            ->minValue(0)
-                            ->maxValue(100)
-                            ->required()
-                            ->columnSpan(2),
 
-                        TagsInput::make('tags')
-                            ->required()
-                            ->columnSpan(3),
+                        CheckboxList::make('allergens.id')
+                            ->relationship('allergens', 'name')
+                            ->columns(4)
+                            ->columnSpanFull(),
 
                     ])->columns(5),
 
@@ -79,6 +75,14 @@ class MenuItemResource extends Resource
                             ->multiple()
                             ->preload()
                             ->required(),
+
+                        TextInput::make('price')
+                            ->prefix('€')
+                            ->numeric()
+                            ->minValue(0)
+                            ->maxValue(100)
+                            ->required()
+                            ->columnSpan(2),
                     ]),
                 ])->columnSpan(1),
 
@@ -93,10 +97,11 @@ class MenuItemResource extends Resource
                     ->toggleable(),
                 TextColumn::make('title')
                     ->sortable(),
+                TextColumn::make('menuCategories.name'),
+
                 TextColumn::make('price')
                     ->prefix('€ ')
                     ->sortable(),
-                TextColumn::make('menuCategories.name'),
             ])
             ->filters([
                 //
