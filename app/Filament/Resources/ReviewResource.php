@@ -27,15 +27,17 @@ class ReviewResource extends Resource
     {
         return $form
             ->schema([
-                Section::make('Contents')->schema([
+                Section::make(__('castello.contents'))->schema([
 
                     TextInput::make('author')
+                        ->label(__('castello.author'))
                         ->minLength(3)
                         ->maxLength(255)
                         ->required()
                         ->columnSpan(2),
 
                     Select::make('platform')
+                        ->label(__('castello.platform'))
                         ->options([
                             'Facebook Reviews' => 'Facebook Reviews',
                             'Google Reviews' => 'Google Reviews',
@@ -44,11 +46,13 @@ class ReviewResource extends Resource
                         ->columnSpan(1),
 
                     TextInput::make('url')
+                        ->label(__('castello.url'))
                         ->url()
                         ->required()
                         ->columnSpan(2),
 
                     TextInput::make('content')
+                        ->label(__('castello.content'))
                         ->required()
                         ->columnSpanFull(),
 
@@ -62,11 +66,14 @@ class ReviewResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('author'),
+                TextColumn::make('author')
+                    ->label(__('castello.author')),
                 TextColumn::make('excerpt')
-                    ->label('Content'),
-                TextColumn::make('platform'),
+                    ->label(__('castello.excerpt')),
+                TextColumn::make('platform')
+                    ->label(__('castello.platform')),
                 TextColumn::make('url')
+                    ->label(__('castello.url'))
                     ->url(fn ($record) => url($record->url)),
             ])
             ->filters([
