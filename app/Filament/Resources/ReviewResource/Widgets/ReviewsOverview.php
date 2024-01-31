@@ -11,7 +11,8 @@ class ReviewsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Number of reviews', Review::count()),
+            Stat::make('Number of reviews', Review::count())
+                ->label(__('castello.number_of_reviews')),
         ];
     }
 }

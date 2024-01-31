@@ -1,33 +1,48 @@
 <?php
 
 return [
-    'menu categories' => 'Categorie',
-    'menu items' => 'Piatti',
-    'menu' => 'Menu',
+    'menu_category' => 'categoria',
+    'menu_categories' => 'categorie',
+    'menu_item' => 'piatto',
+    'menu_items' => 'piatti',
+    
+    'menu' => 'Menù',
     'company' => 'Azienda',
     'website' => 'Sito web',
-    'reviews' => 'Recensioni',
-    'news' => 'News',
-
-    'contents' => 'Dettagli',
-    'title' => 'Titolo',
-    'subtitle' => 'Sottotitolo',
-
-    'price' => 'Prezzo',
-    'author' => 'Autore',
-    'platform' => 'Piattaforma',
-    'url' => 'URL',
-    'content' => 'Contenuti',
-
-    'attachment' => 'Allegato',
+    'review' => 'recensione',
+    'reviews' => 'recensioni',
+    'news' => 'news',
     
-    'name' => 'Nome',
-    'order' => 'Ordine',
-    'color' => 'Colore',
-
-    'key' => 'Chiave',
-    'value' => 'Valore',
-
+    'contents' => 'dettagli',
+    'title' => 'titolo',
+    'subtitle' => 'sottotitolo',
+    
+    'price' => 'prezzo',
+    'author' => 'autore',
+    'platform' => 'piattaforma',
+    'url' => 'URL',
+    'content' => 'contenuti',
+    
+    'attachment' => 'allegato',
+    'attachments' => 'allegati',
+    
+    'name' => 'nome',
+    'order' => 'ordine',
+    'color' => 'colore',
+    
+    'setting' => 'impostazione',
+    'settings' => 'impostazioni',
+    'key' => 'chiave',
+    'value' => 'valore',
+    
     // TODO: valutare un altro nome
-    'excerpt' => 'Estratto',
+    'excerpt' => 'estratto',
+    
+    'published_news' => 'News pubblicate',
+    'scheduled_news' => 'News programmata',
+    'expired_news' => 'News scadute',
+    'archived_news' => 'News archiviate',
+
+    'number_of_reviews' => 'Numero di recensioni',
+
 ];

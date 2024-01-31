@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'Nuovo :label',
+    'title' => 'Aggiungi :label',
 
     'breadcrumb' => 'Nuovo',
 

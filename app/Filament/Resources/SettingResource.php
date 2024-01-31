@@ -22,7 +22,20 @@ class SettingResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static ?string $navigationGroup = 'Company';
+    public static function getLabel(): ?string
+    {
+        return __('castello.setting');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('castello.settings');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('castello.company');
+    }
 
     protected static ?int $navigationSort = 10;
 
@@ -30,8 +43,10 @@ class SettingResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('key'),
-                TextInput::make('value'),
+                TextInput::make('key')
+                    ->label(__('castello.key')),
+                TextInput::make('value')
+                    ->label(__('castello.value')),
             ]);
     }
 
@@ -39,8 +54,10 @@ class SettingResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('key'),
-                TextColumn::make('value'),
+                TextColumn::make('key')
+                    ->label(__('castello.key')),
+                TextColumn::make('value')
+                    ->label(__('castello.value')),
                 TextColumn::make('updated_at')
             ])
             ->filters([

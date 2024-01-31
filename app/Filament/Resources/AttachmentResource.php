@@ -18,8 +18,11 @@ use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 class AttachmentResource extends Resource
 {
     protected static ?string $model = Attachment::class;
-
-    protected static ?string $navigationGroup = 'Website';
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return __('castello.website');
+    }
 
     protected static ?int $navigationSort = 3;
 

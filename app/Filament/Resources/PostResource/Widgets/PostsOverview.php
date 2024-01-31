@@ -13,10 +13,17 @@ class PostsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Published news', Post::countPosts(type: 'published')),
-            Stat::make('Scheduled news', Post::countPosts(type: 'scheduled')),
-            Stat::make('Expired news', Post::countPosts(type: 'expired')),
-            Stat::make('Archived news', Post::countPosts(type: 'archived')),
+            Stat::make('Published news', Post::countPosts(type: 'published'))
+                ->label(__('castello.published_news')),
+
+            Stat::make('Scheduled news', Post::countPosts(type: 'scheduled'))
+                ->label(__('castello.scheduled_news')),
+
+            Stat::make('Expired news', Post::countPosts(type: 'expired'))
+                ->label(__('castello.expired_news')),
+                
+            Stat::make('Archived news', Post::countPosts(type: 'archived'))
+                ->label(__('castello.archived_news')),
         ];
     }
 }

@@ -1,33 +1,47 @@
 <?php
 
 return [
-    'menu Categories' => 'Menu categories',
-    'menu Items' => 'Menu items',
+    'menu_category' => 'menu category',
+    'menu_categories' => 'menu categories',
+    'menu_item' => 'menu item',
+    'menu_items' => 'menu items',
     'menu' => 'Menu',
     'company' => 'Company',
     'website' => 'Website',
-    'reviews' => 'Reviews',
-    'news' => 'News',
-
-    'contents' => 'Contents',
-    'title' => 'Title',
-    'subtitle' => 'Subtitle',
-
-    'price' => 'Price',
-    'author' => 'Author',
-    'platform' => 'Platform',
+    'review' => 'review',
+    'reviews' => 'reviews',
+    'news' => 'news',
+    
+    'contents' => 'contents',
+    'title' => 'title',
+    'subtitle' => 'subtitle',
+    
+    'price' => 'price',
+    'author' => 'author',
+    'platform' => 'platform',
     'url' => 'URL',
-    'content' => 'Testo',
-
-    'attachment' => 'Attachment',
+    'content' => 'text',
     
-    'name' => 'Name',
-    'order' => 'Order',
-    'color' => 'Color',
-
-    'key' => 'Key',
-    'value' => 'Value',
+    'attachment' => 'attachment',
+    'attachments' => 'attachments',
     
-    // TODO: valutare un altro nome
-    'excerpt' => 'Excerpt',
+    'name' => 'name',
+    'order' => 'order',
+    'color' => 'color',
+    
+    'key' => 'key',
+    'value' => 'value',
+    
+    // TODO: consider another name
+    'setting' => 'setting',
+    'settings' => 'settings',
+    'excerpt' => 'excerpt',
+
+    'published_news' => 'Published news',
+    'scheduled_news' => 'Scheduled news',
+    'expired_news' => 'Expired news',
+    'archived_news' => 'Archived news',
+
+    'number_of_reviews' => 'Number of reviews',
+    
 ];

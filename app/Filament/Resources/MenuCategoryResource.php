@@ -22,7 +22,20 @@ class MenuCategoryResource extends Resource
 {
     protected static ?string $model = MenuCategory::class;
 
-    protected static ?string $navigationGroup = 'Menu';
+    public static function getLabel(): ?string
+    {
+        return __('castello.menu_category');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('castello.menu_categories');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('castello.menu');
+    }
 
     protected static ?int $navigationSort = 4;
 

@@ -26,9 +26,16 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $modelLabel = 'News';
+    public static function getLabel(): ?string
+    {
+        return __('castello.news');
 
-    protected static ?string $navigationGroup = 'Website';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('castello.website');
+    }
 
     protected static ?int $navigationSort = 1;
 

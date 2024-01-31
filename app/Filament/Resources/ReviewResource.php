@@ -17,7 +17,20 @@ class ReviewResource extends Resource
 {
     protected static ?string $model = Review::class;
 
-    protected static ?string $navigationGroup = 'Website';
+    public static function getLabel(): ?string
+    {
+        return __('castello.review');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('castello.reviews');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('castello.website');
+    }
 
     protected static ?int $navigationSort = 2;
 
