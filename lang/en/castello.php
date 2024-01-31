@@ -12,9 +12,13 @@ return [
     'reviews' => 'reviews',
     'news' => 'news',
     
+    'image' => 'image',
     'contents' => 'contents',
     'title' => 'title',
     'subtitle' => 'subtitle',
+
+    'allergen' => 'allergen',
+    'allergens' => 'allergens',
     
     'price' => 'price',
     'author' => 'author',
@@ -43,5 +47,23 @@ return [
     'archived_news' => 'Archived news',
 
     'number_of_reviews' => 'Number of reviews',
-    
+
+    'copy_file_url' => 'Copy URL',
+    'file_size' => 'File size',
+
+    'created_at' => 'Date of upload',
+
+    'publish_policy' => 'Publish policy',
+    'published_at' => 'Publish date',
+    'unpublished_at' => 'Unpublish date',
+    'priority' => 'Priority',
+    'archived' => 'Archived',
+
+    'priority_high' => 'High',
+    'priority_medium' => 'Medium',
+    'priority_low' => 'Low',
+
+    'count_menu_items' => 'Number of menu items',
+
+    'updated_at' => 'Last update'
 ];

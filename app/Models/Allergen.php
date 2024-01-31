@@ -18,4 +18,9 @@ class Allergen extends Model
             relatedPivotKey: 'allergen_id'
         );
     }
+
+    public function getNameAttribute()
+    {
+        return $this->attributes['name_' . app()->getlocale()];
+    }
 }

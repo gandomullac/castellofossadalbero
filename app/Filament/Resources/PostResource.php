@@ -49,21 +49,24 @@ class PostResource extends Resource
                 Group::make()->schema([
                     Section::make('Contents')->schema([
                         TextInput::make('title')
+                            ->label(__('castello.title'))
                             ->minLength(5)
                             ->maxLength(255)
                             ->required(),
 
                         TextInput::make('subtitle')
+                            ->label(__('castello.subtitle'))
                             ->maxLength(100),
 
                         RichEditor::make('content')
+                            ->label(__('castello.content'))
                             ->required(),
                     ]),
 
                 ])->columnSpan(2),
 
                 Group::make()->schema([
-                    Section::make('Image')
+                    Section::make(__('castello.image'))
                         ->schema([
                             FileUpload::make('image')
                                 ->label('')
@@ -73,16 +76,21 @@ class PostResource extends Resource
                                 ->required()
                         ]),
 
-                    Section::make('Publish policy')->schema([
-                        DatePicker::make('published_at'),
-                        DatePicker::make('unpublished_at'),
-                        Select::make('priority')
+                    Section::make(__('castello.publish_policy'))->schema([
+                        DatePicker::make('published_at')
+                            ->label(__('castello.published_at')),
+                        DatePicker::make('unpublished_at')
+                            ->label(__('castello.unpublished_at')),
+                            Select::make('priority')
+                            ->label(__('castello.priority'))
                             ->options([
-                                1 => 'High',
-                                0 => 'Medium',
-                                -1 => 'Low',
+                                1 => __('castello.priority_high'),
+                                0 => __('castello.priority_medium'),
+                                -1 => __('castello.priority_low'),
                             ])->default(0),
-                        Checkbox::make('archived'),
+                        Checkbox::make('archived')
+                            ->label(__('castello.archived')),
+                        
                     ]),
                 ]),
 

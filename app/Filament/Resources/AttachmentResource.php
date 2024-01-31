@@ -18,6 +18,18 @@ use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 class AttachmentResource extends Resource
 {
     protected static ?string $model = Attachment::class;
+
+    public static function getLabel(): ?string
+    {
+        return __('castello.attachment');
+
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return __('castello.attachments');
+    }
+
     
     public static function getNavigationGroup(): ?string
     {
@@ -33,7 +45,7 @@ class AttachmentResource extends Resource
         return $form
             ->schema([
                 Group::make()->schema([
-                    Section::make('Attachment')->schema([
+                    Section::make(__('castello.attachment'))->schema([
                         FileUpload::make('path')
                             ->label('File')
                             ->disk('public')
@@ -55,25 +67,26 @@ class AttachmentResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label(__('castello.name'))
                     ->url(fn ($record) => url($record->fileUrl))
                     ->searchable()
                     ->wrap()
                     ->sortable(),
-                TextColumn::make('fileUrl')
-                    ->label('File URL')
-                    ->wrap()
-                    ->sortable(),
+                // TextColumn::make('fileUrl')
+                //     ->label('File URL')
+                //     ->wrap()
+                //     ->sortable(),
                 CopyableTextColumn::make('fileUrl')
-                    ->label('Copy File URL')
+                    ->label(__('castello.copy_file_url'))
                     ->copyMessage('URL copied to clipboard')
                     ->onlyIcon()
                     ->toggleable(),
                 TextColumn::make('fileSize')
+                    ->label(__('castello.file_size'))
                     ->suffix(' MB')
                     ->sortable(),
                 TextColumn::make('created_at')
-                    ->label('Created At')
+                    ->label(__('castello.created_at'))
                     ->dateTime()
                     ->sortable(),
 

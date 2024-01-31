@@ -1,48 +1,70 @@
 <?php
 
 return [
-    'menu_category' => 'categoria',
-    'menu_categories' => 'categorie',
-    'menu_item' => 'piatto',
-    'menu_items' => 'piatti',
+    'menu_category' => 'Categoria',
+    'menu_categories' => 'Categorie',
+    'menu_item' => 'Piatto',
+    'menu_items' => 'Piatti',
     
     'menu' => 'Menù',
     'company' => 'Azienda',
     'website' => 'Sito web',
-    'review' => 'recensione',
-    'reviews' => 'recensioni',
-    'news' => 'news',
+    'review' => 'Recensione',
+    'reviews' => 'Recensioni',
+    'news' => 'News',
     
-    'contents' => 'dettagli',
-    'title' => 'titolo',
-    'subtitle' => 'sottotitolo',
+    'image' => 'Immagine',
+    'contents' => 'Dettagli',
+    'title' => 'Titolo',
+    'subtitle' => 'Sottotitolo',
+
+    'allergen' => 'Allergene',
+    'allergens' => 'Allergeni',
     
-    'price' => 'prezzo',
-    'author' => 'autore',
-    'platform' => 'piattaforma',
+    'price' => 'Prezzo',
+    'author' => 'Autore',
+    'platform' => 'Piattaforma',
     'url' => 'URL',
-    'content' => 'contenuti',
+    'content' => 'Contenuti',
     
-    'attachment' => 'allegato',
-    'attachments' => 'allegati',
+    'attachment' => 'Allegato',
+    'attachments' => 'Allegati',
     
-    'name' => 'nome',
-    'order' => 'ordine',
-    'color' => 'colore',
+    'name' => 'Nome',
+    'order' => 'Ordine',
+    'color' => 'Colore',
     
-    'setting' => 'impostazione',
-    'settings' => 'impostazioni',
-    'key' => 'chiave',
-    'value' => 'valore',
+    'setting' => 'Impostazione',
+    'settings' => 'Impostazioni',
+    'key' => 'Chiave',
+    'value' => 'Valore',
     
-    // TODO: valutare un altro nome
-    'excerpt' => 'estratto',
+    // TODO: Valutare un altro nome
+    'excerpt' => 'Estratto',
     
-    'published_news' => 'News pubblicate',
-    'scheduled_news' => 'News programmata',
-    'expired_news' => 'News scadute',
-    'archived_news' => 'News archiviate',
+    'published_news' => 'News Pubblicate',
+    'scheduled_news' => 'News Programmata',
+    'expired_news' => 'News Scadute',
+    'archived_news' => 'News Archiviate',
 
-    'number_of_reviews' => 'Numero di recensioni',
+    'number_of_reviews' => 'Numero di Recensioni',
 
+    'copy_file_url' => 'Copia URL',
+    'file_size' => 'Dimensione',
+
+    'created_at' => 'Data di caricamento',
+
+    'publish_policy' => 'Pubblicazione',
+    'published_at' => 'Data di pubblicazione',
+    'unpublished_at' => 'Data di rimozione',
+    'priority' => 'Priorità',
+    'archived' => 'Archiviato',
+
+    'priority_high' => 'Alta',
+    'priority_medium' => 'Media',
+    'priority_low' => 'Bassa',
+
+    'count_menu_items' => 'Numero di piatti',
+
+    'updated_at' => 'Ultimo aggiornamento'
 ];

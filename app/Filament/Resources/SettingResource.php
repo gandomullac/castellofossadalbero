@@ -59,6 +59,8 @@ class SettingResource extends Resource
                 TextColumn::make('value')
                     ->label(__('castello.value')),
                 TextColumn::make('updated_at')
+                    ->label(__('castello.updated_at')),
+
             ])
             ->filters([
                 //

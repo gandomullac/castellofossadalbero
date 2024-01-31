@@ -45,8 +45,9 @@ class MenuCategoryResource extends Resource
     {
         return $form->schema([
             Group::make()->schema([
-                Section::make('Contents')->schema([
+                Section::make(__('castello.contents'))->schema([
                     TextInput::make('name')
+                        ->label(__('castello.name'))
                         ->minLength(5)
                         ->maxLength(255)
                         ->unique()
@@ -54,6 +55,7 @@ class MenuCategoryResource extends Resource
                         ->columnSpan(3),
 
                     TextInput::make('order')
+                        ->label(__('castello.order'))
                         ->numeric()
                         ->minValue(0)
                         ->maxValue(10)
@@ -71,6 +73,7 @@ class MenuCategoryResource extends Resource
                         ->columnSpan(1),
 
                     ColorPicker::make('color')
+                        ->label(__('castello.color'))
                         ->nullable()
                         ->columnSpan(1),
 
@@ -83,11 +86,14 @@ class MenuCategoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('order')->sortable(),
-                TextColumn::make('name')->sortable(),
-                ColorColumn::make('color'),
+                TextColumn::make('order')->sortable()
+                    ->label(__('castello.order')),
+                TextColumn::make('name')->sortable()
+                    ->label(__('castello.name')),
+                ColorColumn::make('color')
+                    ->label(__('castello.color')),
                 TextColumn::make('countMenuItems')
-                    ->label('Items')
+                    ->label(__('castello.count_menu_items'))
                     ->sortable(),
             ])
             ->filters([

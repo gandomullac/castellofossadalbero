@@ -48,14 +48,17 @@ class MenuItemResource extends Resource
             ->schema([
 
                 Group::make()->schema([
-                    Section::make('Contents')->schema([
+                    Section::make(__('castello.contents'))
+                        ->schema([
                         TextInput::make('title')
+                            ->label(__('castello.title'))
                             ->minLength(5)
                             ->maxLength(255)
                             ->required()
                             ->columnSpanFull(),
 
                         TextInput::make('subtitle')
+                            ->label(__('castello.subtitle'))
                             ->minLength(5)
                             ->maxLength(255)
                             // ->required()
@@ -63,7 +66,8 @@ class MenuItemResource extends Resource
 
 
                         CheckboxList::make('allergens.id')
-                            ->relationship('allergens', 'name')
+                            ->label(__('castello.allergens'))
+                            ->relationship('allergens', 'name_'.app()->getLocale())
                             ->columns(4)
                             ->columnSpanFull(),
 
@@ -72,7 +76,7 @@ class MenuItemResource extends Resource
                 ])->columnSpan(2),
 
                 Group::make()->schema([
-                    Section::make('Image')->schema([
+                    Section::make(__('castello.image'))->schema([
                         FileUpload::make('image')
                             ->label('')
                             ->avatar()
@@ -81,8 +85,9 @@ class MenuItemResource extends Resource
                             ->nullable(),
                     ]),
 
-                    Section::make('Menu')->schema([
+                    Section::make(__('castello.menu'))->schema([
                         Select::make('menu_category_id')
+                            ->label(__('castello.menu_categories'))
                             ->relationship('menuCategories', 'name')
                             ->searchable()
                             ->multiple()
@@ -90,6 +95,7 @@ class MenuItemResource extends Resource
                             ->required(),
 
                         TextInput::make('price')
+                            ->label(__('castello.price'))
                             ->prefix('€')
                             ->numeric()
                             ->minValue(0)
@@ -107,12 +113,18 @@ class MenuItemResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
+                    ->label(__('castello.image'))
                     ->toggleable(),
+
                 TextColumn::make('title')
+                    ->label(__('castello.title'))
                     ->sortable(),
-                TextColumn::make('menuCategories.name'),
+
+                TextColumn::make('menuCategories.name')
+                    ->label(__('castello.categories')),
 
                 TextColumn::make('price')
+                    ->label(__('castello.price'))
                     ->prefix('€ ')
                     ->sortable(),
             ])
