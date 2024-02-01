@@ -25,7 +25,7 @@
                                     <strong>Telefono:</strong> <a
                                         href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a><br>
                                     <strong>E-Mail:</strong> <a
-                                        href="mailto:{{ $settings['company_email'] }}">{{ $settings['company_email'] }}</a><br>
+                                        href="mailto:{{ $settings['company_email_address'] }}">{{ $settings['company_email_address'] }}</a><br>
                                 </p>
                                 <div class="social-links mt-3">
                                     <a href="{{ $settings['company_facebook'] }}"

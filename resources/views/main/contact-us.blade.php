@@ -17,7 +17,7 @@
 
         <div class="row">
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="info">
                     <div class="open-hours">
                         <i class="bi bi-geo-alt"></i>
@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="info">
                     <div class="open-hours">
                         <i class="bi bi-clock"></i>
@@ -40,27 +40,21 @@
                 </div>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="info">
                     <div class="email">
                         <i class="bi bi-envelope"></i>
                         <h4>E-Mail:</h4>
                         <p>
-                            <a href="mailto:{{ $settings['company_email'] }}">
-                                {{ $settings['company_email'] }}
+                            <a href="mailto:{{ $settings['company_email_address'] }}">
+                                {{ $settings['company_email_address'] }}
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
 
-            {{-- <div class="phone">
-              <i class="bi bi-telephone"></i>
-              <h4>Numero di telefono:</h4>
-              <p><a href="tel:+390532241194">0532 241194</a></p>
-            </div> --}}
-
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="info">
                     <div class="phone">
                         <i class="bi bi-telephone"></i>

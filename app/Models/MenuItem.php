@@ -22,11 +22,9 @@ class MenuItem extends Model
         return $this->belongsToMany(
             related: MenuCategory::class,
             table: 'menu_item_menu_category',
-            foreignPivotKey: 'menu_category_id',
-            relatedPivotKey: 'menu_item_id'
-        )
-            ->withPivot(['order'])
-            ->withTimestamps();
+            foreignPivotKey: 'menu_item_id',
+            relatedPivotKey: 'menu_category_id'
+        )->withTimestamps();
     }
 
     public function allergens()

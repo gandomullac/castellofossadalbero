@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('menu_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('color')->nullable();
             $table->unsignedInteger('order')->default(0);
             $table->timestamps();

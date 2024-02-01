@@ -16,6 +16,7 @@ class MenuCategorySeeder extends Seeder
         $categories = [
             ['Menù carne', '#ffb800'],
             ['Menù pesce', '#ffb800'],
+            ['Antipasti', '#ffb800'],
             ['Primi piatti', '#870f22'],
             ['Secondi piatti', '#235d72'],
             ['Menù bambini', '#12d885'],
@@ -23,11 +24,11 @@ class MenuCategorySeeder extends Seeder
         ];
 
         foreach($categories as $category){
-            MenuCategory::updateOrCreate([
-                'name' => $category[0],
-                'color' => $category[1],    
-                'order' => MenuCategory::count() + 1,
-            ]);
+            MenuCategory::updateOrCreate(
+                [ 'name' => $category[0] ],
+                [ 'color' => $category[1] ],
+                [ 'order' => MenuCategory::count() + 1 ],
+            );
         }
 
     }

@@ -14,8 +14,8 @@ class Allergen extends Model
         return $this->belongsToMany(
             related: Allergen::class,
             table: 'allergen_menu_item',
-            foreignPivotKey: 'menu_item_id',
-            relatedPivotKey: 'allergen_id'
+            foreignPivotKey: 'allergen_id',
+            relatedPivotKey: 'menu_item_id'
         );
     }
 

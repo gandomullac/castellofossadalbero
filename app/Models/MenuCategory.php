@@ -19,9 +19,7 @@ class MenuCategory extends Model
             table: 'menu_item_menu_category',
             foreignPivotKey: 'menu_item_id',
             relatedPivotKey: 'menu_category_id'
-        )
-            ->withPivot(['order'])
-            ->withTimestamps();
+        )->withTimestamps();
     }
 
     public function getCountMenuItemsAttribute()

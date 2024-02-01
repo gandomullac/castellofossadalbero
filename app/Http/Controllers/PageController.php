@@ -16,7 +16,16 @@ class PageController extends Controller
     {
         $settings = Setting::getSettings();
         $events = Post::published()->orderBy('order')->get();
-        $menuItems = MenuItem::all();
+        $menuItems = MenuItem::with('menuCategories')
+        ->get()
+        ->sortBy(function ($menuItem) {
+            return $menuItem->menuCategories->max('id');
+        });
+
+
+        // dd($menuItems);
+
+        
         $menuCategories = MenuCategory::all();
         $reviews = Review::all();
 

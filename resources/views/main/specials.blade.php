@@ -33,10 +33,8 @@
                   <h3>Campi da tennis in terra rossa con illuminazione notturna</h3>
                   <p>Dai giardini della Delizia è possibile accedere ai due campi da tennis,
                     prenotabili in autonomia tramite la comoda web app <a
-                      href="https://fossadalbero.wansport.com/">Wansport</a>.</p>
-                  <p>La tariffa standard è 16€ dalle 9:00 alle 18:00 e 20€ dalle 18:00 alle 23:00. Per i soci del
-                    Castello, la tariffa è di 6€ e 10€ per le rispettive fasce orarie. In inverno i campi sono
-                    accessibili solamente durante il weekend.
+                      href="{{ $settings['company_wansport'] }}">Wansport</a>.</p>
+                  <p> {{ $settings['tennis_promo'] }}
                   </p>
                   <p>Per qualsiasi informazione, vi invitiamo a contattarci all'indirizzo <a
                       href="mailto:info@castellofossadalbero.it">info@castellofossadalbero.it</a>.</p>

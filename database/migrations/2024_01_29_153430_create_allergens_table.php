@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('allergens', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en');
-            $table->string('name_it');
+            $table->string('name_en')->unique();
+            $table->string('name_it')->unique();
             $table->string('image');
             $table->timestamps();
         });
