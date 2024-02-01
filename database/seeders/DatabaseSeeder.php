@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(AllergenSeeder::class);
+        $this->call(SettingSeeder::class);
+        $this->call(MenuCategorySeeder::class);
+
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

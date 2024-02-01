@@ -23,7 +23,7 @@
 
                                     <!-- <strong>Telefono:</strong> <a href="tel:+390532241194">0532 241194</a><br> -->
                                     <strong>Telefono:</strong> <a
-                                        href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone']); }}">{{ $settings['company_phone'] }}</a><br>
+                                        href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a><br>
                                     <strong>E-Mail:</strong> <a
                                         href="mailto:{{ $settings['company_email'] }}">{{ $settings['company_email'] }}</a><br>
                                 </p>

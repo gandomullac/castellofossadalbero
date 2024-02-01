@@ -3,8 +3,8 @@
 
         <div class="contact-info d-flex align-items-center">
             <i class="bi bi-phone d-flex align-items-center"><span><a
-                        href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone']); }}"
-                        class="text-white">{{ $settings['company_phone'] }}</a></span></i>
+                        href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}"
+                        class="text-white">{{ $settings['company_phone_number'] }}</a></span></i>
             <i class="bi bi-clock d-flex align-items-center ms-4"><span>
                     {{ $settings['company_business_hours'] }}</span></i>
         </div>

@@ -47,7 +47,7 @@
                     </p>
                     <p class="mt-5">Goditi momenti di relax e di benessere senza paragoni al Castello di Fossadalbero.
                         <br>
-                        Per informazioni: <a href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone']); }}">{{ $settings['company_phone'] }}</a></p>
+                        Per informazioni: <a href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a></p>
                 </div>
 
             </div>

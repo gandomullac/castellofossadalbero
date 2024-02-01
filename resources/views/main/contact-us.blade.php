@@ -66,7 +66,7 @@
                         <i class="bi bi-telephone"></i>
                         <h4>Telefono:</h4>
                         <p><a
-                                href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone']); }}">{{ $settings['company_phone'] }}</a>
+                                href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a>
                         </p>
                     </div>
                 </div>

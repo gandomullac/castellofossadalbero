@@ -33,7 +33,7 @@ class AllergenSeeder extends Seeder
         
 
         foreach ($allergens as $key => $allergen) {
-            Allergen::create([
+            Allergen::updateOrCreate([
                 'name_en' => $allergen['English'],
                 'name_it' => $allergen['Italian'],
                 'image' => "assets/img/allergens/". $allergen['English'] . ".svg" 

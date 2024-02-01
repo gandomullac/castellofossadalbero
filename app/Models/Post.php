@@ -4,12 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+
+    protected static function booted()
+    {
+        static::deleted(function ($post) {
+            $post->deleteImage();
+        });
+    }
+
+    public function deleteImage()
+    {
+        return Storage::delete('public/'.$this->image);
+    }
 
     public function isPublished()
     {
