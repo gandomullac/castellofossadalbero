@@ -65,7 +65,7 @@ class MenuItemResource extends Resource
                             ->columnSpanFull(),
 
 
-                        CheckboxList::make('allergens.id')
+                        CheckboxList::make('allergens')
                             ->label(__('castello.allergens'))
                             ->relationship('allergens', 'name_'.app()->getLocale())
                             ->columns(4)
