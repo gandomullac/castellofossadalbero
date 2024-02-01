@@ -19,7 +19,7 @@ class PageController extends Controller
         $menuItems = MenuItem::with('menuCategories')
         ->get()
         ->sortBy(function ($menuItem) {
-            return $menuItem->menuCategories->max('id');
+            return $menuItem->menuCategories->sortBy('id')->last();
         });
 
 

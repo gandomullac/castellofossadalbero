@@ -41,5 +41,10 @@ class MenuItem extends Model
     {
         return $value ?? asset(self::FOOD_PLACEHOLDER);
     }
+
+    public function getColorAttribute()
+    {
+        return $this->menuCategories->sortBy('id')->last()->color;
+    }
     
 }
