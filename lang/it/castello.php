@@ -43,7 +43,7 @@ return [
     'excerpt' => 'Estratto',
     
     'published_news' => 'News Pubblicate',
-    'scheduled_news' => 'News Programmata',
+    'scheduled_news' => 'News Programmate',
     'expired_news' => 'News Scadute',
     'archived_news' => 'News Archiviate',
 
