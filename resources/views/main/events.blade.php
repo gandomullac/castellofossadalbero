@@ -1,3 +1,11 @@
+<style>
+    .events {
+    background: url({{ asset('assets/img/events-bg3.jpg') }}) center center no-repeat;
+    background-size: cover;
+    position: relative;
+    }
+</style>
+
 <section id="events" class="events">
     <div class="container" data-aos="fade-up">
 
