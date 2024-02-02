@@ -20,6 +20,8 @@ use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class PostResource extends Resource
@@ -102,33 +104,43 @@ class PostResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->toggleable(),
+                    ->toggleable()
+                    ->label(__('castello.image')),
                 TextColumn::make('title')
+                    ->label(__('castello.title'))
                     // ->description(fn (Post $record): string => $record->excerpt)
                     ->wrap()
                     ->sortable(),
                 TextColumn::make('subtitle')
+                    ->label(__('castello.subtitle'))
                     ->wrap(),
                 TextColumn::make('publishStatus')
+                    ->label(__('castello.publish_status'))
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'expired' => 'gray',
-                        'draft' => 'warning',
-                        'published' => 'success',
-                        'archived' => 'danger',
+                        __('castello.expired') => 'gray',
+                        __('castello.scheduled') => 'warning',
+                        __('castello.published') => 'success',
+                        __('castello.archived') => 'danger',
                     })
                     ->sortable(),
                 // TextColumn::make('created_at')->date(),
                 IconColumn::make('priority')
+                    ->label(__('castello.priority'))
                     ->sortable()
                     ->icon(fn (string $state): string => match ($state) {
                         '1' => 'heroicon-o-arrow-up-circle',
                         '0' => 'heroicon-o-minus-circle',
                         '-1' => 'heroicon-o-arrow-down-circle',
+                    })
+                    ->color(fn (string $state): string => match ($state) {
+                        '1'=> 'danger',
+                        '0' => 'info',
+                        '-1' => 'warning',
                     }),
 
                 CheckboxColumn::make('archived')
-                    ->label('Archive')
+                    ->label(__('castello.force_archive'))
                     ->afterStateUpdated(function (string $state, Set $set) {
                         if ($state == 'true') {
                             $set('publishStatus', 'archived');
@@ -137,7 +149,15 @@ class PostResource extends Resource
 
             ])->defaultSort('Priority', 'desc')
             ->filters([
-                //
+                SelectFilter::make('publishStatus')
+                    ->label(__('castello.publish_status'))
+                    ->options([
+                        'expired' => __('castello.expired'),
+                        'scheduled' => __('castello.scheduled'),
+                        'published' => __('castello.published'),
+                        'archived' => __('castello.archived'),
+                    ]),
+                Filter::make('archived'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

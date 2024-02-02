@@ -66,16 +66,16 @@ class Post extends Model
     public function getPublishStatusAttribute()
     {
         if ($this->archived) {
-            return 'archived';
+            return __('castello.archived');
         } elseif ($this->isPublished()) {
-            return 'published';
+            return __('castello.published');
         } elseif ($this->isScheduled()) {
-            return 'draft';
+            return __('castello.scheduled');
         } elseif ($this->isExpired()) {
-            return 'expired';
+            return __('castello.expired');
         }
 
-        return 'published';
+        return __('castello.published');
     }
 
     // method to show a short excerpt of the post, without html tags

@@ -66,5 +66,13 @@ return [
 
     'count_menu_items' => 'Numero di piatti',
 
-    'updated_at' => 'Ultimo aggiornamento'
+    'updated_at' => 'Ultimo aggiornamento',
+
+    'published' => 'Pubblicato',
+    'scheduled' => 'Programmato',
+    'archived' => 'Archiviato',
+    'expired' => 'Scaduto',
+
+    'publish_status' => 'Stato',
+    'force_archive' => 'Archivia'
 ];

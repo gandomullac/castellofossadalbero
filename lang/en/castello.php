@@ -65,5 +65,14 @@ return [
 
     'count_menu_items' => 'Number of menu items',
 
-    'updated_at' => 'Last update'
+    'updated_at' => 'Last update',
+
+    'published' => 'Published',
+    'scheduled' => 'Scheduled',
+    'archived' => 'Archived',
+    'expired' => 'Expired',
+
+    'publish_status' => 'Status',
+    'force_archive' => 'Archive'
+
 ];
