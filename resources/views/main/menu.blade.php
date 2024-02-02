@@ -3,7 +3,7 @@
 
       <div class="section-title">
         <h2>Menu</h2>
-        <p>Dai un'occhiata al nostro menù</p>
+        <p>Scopri il nostro menù</p>
       </div>
 
       

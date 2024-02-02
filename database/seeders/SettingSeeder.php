@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $settings = [
-            'company_phone_number' => '353 4404960',
+            'company_phone_number' => '+39 353 4404960',
 
             'company_youtube_promo' => 'https://www.youtube.com/watch?v=nGMYMoj4SIA',
 
@@ -42,9 +42,7 @@ class SettingSeeder extends Seeder
             Castello, la tariffa è di 6€ e 10€ per le rispettive fasce orarie. In inverno i campi sono
             accessibili solamente durante il weekend.',
 
-            'swimming_pool_module' => '',
-
-            'swimming_pool_pricing' => '',
+            'company_google_maps' => 'https://maps.app.goo.gl/eN48xHSjSArbX77k6',
         ];
 
         foreach ($settings as $key => $value) {

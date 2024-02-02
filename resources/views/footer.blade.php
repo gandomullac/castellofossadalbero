@@ -21,9 +21,9 @@
                             <div class="footer-info">
                                 <p>
 
-                                    <!-- <strong>Telefono:</strong> <a href="tel:+390532241194">0532 241194</a><br> -->
+                                    <!-- <strong>Telefono:</strong> <a href="tel:0532241194">0532 241194</a><br> -->
                                     <strong>Telefono:</strong> <a
-                                        href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a><br>
+                                        href="tel:{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a><br>
                                     <strong>E-Mail:</strong> <a
                                         href="mailto:{{ $settings['company_email_address'] }}">{{ $settings['company_email_address'] }}</a><br>
                                 </p>

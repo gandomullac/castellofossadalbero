@@ -7,11 +7,7 @@
         </div>
     </div>
 
-    <div data-aos="fade-up">
-        <iframe style="border:0; width: 100%; height: 350px;"
-            src="https://maps.google.com/maps?q=via%20chiorboli%20366%20fossadalbero%20&t=&z=11&ie=UTF8&iwloc=&output=embed"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+    <div data-aos="fade-up" id="iframeContainer"></div>
 
     <div class="container" data-aos="fade-up">
 
@@ -22,7 +18,7 @@
                     <div class="open-hours">
                         <i class="bi bi-geo-alt"></i>
                         <h4>Dove siamo:</h4>
-                        <p>{{ $settings['company_address'] }}</p>
+                        <p><a href="{{ $settings['company_google_maps'] }}">{{ $settings['company_address'] }}</a></p>
                     </div>
                 </div>
             </div>
@@ -60,7 +56,7 @@
                         <i class="bi bi-telephone"></i>
                         <h4>Telefono:</h4>
                         <p><a
-                                href="tel:+39{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a>
+                                href="tel:{{ $string = str_replace(' ', '', $settings['company_phone_number']); }}">{{ $settings['company_phone_number'] }}</a>
                         </p>
                     </div>
                 </div>

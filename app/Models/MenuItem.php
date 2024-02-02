@@ -47,4 +47,12 @@ class MenuItem extends Model
         return $this->menuCategories->sortBy('id')->last()->color;
     }
     
+    public function getShortTitleAttribute()
+    {
+
+        $content = strip_tags($this->title);
+
+        return substr($content, 0, 75).'...';
+
+    }
 }

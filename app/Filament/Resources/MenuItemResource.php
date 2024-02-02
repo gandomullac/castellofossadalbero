@@ -17,6 +17,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class MenuItemResource extends Resource
@@ -116,12 +117,12 @@ class MenuItemResource extends Resource
                     ->label(__('castello.image'))
                     ->toggleable(),
 
-                TextColumn::make('title')
+                TextColumn::make('shortTitle')
                     ->label(__('castello.title'))
                     ->sortable(),
 
                 TextColumn::make('menuCategories.name')
-                    ->label(__('castello.categories')),
+                    ->label(__('castello.menu_categories')),
 
                 TextColumn::make('price')
                     ->label(__('castello.price'))
@@ -129,7 +130,11 @@ class MenuItemResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('menuCategories')
+                    ->relationship('menuCategories', 'name')
+                    ->label(__('castello.menu_categories'))
+                    ->preload(),
+                    // ->multiple(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -7,6 +7,7 @@
 <script src={{ asset("assets/vendor/glightbox/js/glightbox.min.js")  }}></script>
 <script src={{ asset("assets/vendor/isotope-layout/isotope.pkgd.min.js")  }}></script>
 <script src={{ asset("assets/vendor/swiper/swiper-bundle.min.js")  }}></script>
+{{-- <script src={{ asset("assets/js/loadGMaps.js") }} data-iframe-url="https://maps.google.com/maps?q=via%20chiorboli%20366%20fossadalbero%20&t=&z=11&ie=UTF8&iwloc=&output=embed"></script> --}}
 
 <script>
 
