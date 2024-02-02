@@ -15,7 +15,13 @@ class PageController extends Controller
     public function homepage()
     {
         $settings = Setting::getSettings();
-        $events = Post::published()->orderBy('order')->get();
+
+        $events = Post::published()
+            ->orderByDesc('priority')
+            ->orderBy('published_at')
+            ->orderBy('unpublished_at')
+            ->get();
+        
         $menuItems = MenuItem::with('menuCategories')
         ->get()
         ->sortBy(function ($menuItem) {
