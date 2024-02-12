@@ -21,7 +21,7 @@ class PostsOverview extends BaseWidget
 
             Stat::make('Expired news', Post::countPosts(type: 'expired'))
                 ->label(__('castello.expired_news')),
-                
+
             Stat::make('Archived news', Post::countPosts(type: 'archived'))
                 ->label(__('castello.archived_news')),
         ];

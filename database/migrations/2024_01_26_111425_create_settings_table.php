@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('key');
             $table->text('value');
             $table->timestamps();
-            
+
             // $table->unsignedBigInteger('environment_id');
             // $table->unique(['key', 'environment_id']);
-          });
+        });
     }
 
     /**

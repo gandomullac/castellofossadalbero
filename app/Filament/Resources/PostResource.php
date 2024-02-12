@@ -75,7 +75,7 @@ class PostResource extends Resource
                                 // ->avatar()
                                 ->disk('public')
                                 ->directory('uploads/posts')
-                                ->required()
+                                ->required(),
                         ]),
 
                     Section::make(__('castello.publish_policy'))->schema([
@@ -83,7 +83,7 @@ class PostResource extends Resource
                             ->label(__('castello.published_at')),
                         DatePicker::make('unpublished_at')
                             ->label(__('castello.unpublished_at')),
-                            Select::make('priority')
+                        Select::make('priority')
                             ->label(__('castello.priority'))
                             ->options([
                                 1 => __('castello.priority_high'),
@@ -92,7 +92,7 @@ class PostResource extends Resource
                             ])->default(0),
                         Checkbox::make('archived')
                             ->label(__('castello.archived')),
-                        
+
                     ]),
                 ]),
 
@@ -134,7 +134,7 @@ class PostResource extends Resource
                         '-1' => 'heroicon-o-arrow-down-circle',
                     })
                     ->color(fn (string $state): string => match ($state) {
-                        '1'=> 'danger',
+                        '1' => 'danger',
                         '0' => 'info',
                         '-1' => 'warning',
                     }),

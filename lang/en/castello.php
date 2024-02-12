@@ -11,7 +11,7 @@ return [
     'review' => 'review',
     'reviews' => 'reviews',
     'news' => 'news',
-    
+
     'image' => 'image',
     'contents' => 'contents',
     'title' => 'title',
@@ -19,23 +19,23 @@ return [
 
     'allergen' => 'allergen',
     'allergens' => 'allergens',
-    
+
     'price' => 'price',
     'author' => 'author',
     'platform' => 'platform',
     'url' => 'URL',
     'content' => 'text',
-    
+
     'attachment' => 'attachment',
     'attachments' => 'attachments',
-    
+
     'name' => 'name',
     'order' => 'order',
     'color' => 'color',
-    
+
     'key' => 'key',
     'value' => 'value',
-    
+
     // TODO: consider another name
     'setting' => 'setting',
     'settings' => 'settings',
@@ -73,6 +73,6 @@ return [
     'expired' => 'Expired',
 
     'publish_status' => 'Status',
-    'force_archive' => 'Archive'
+    'force_archive' => 'Archive',
 
 ];

@@ -69,7 +69,6 @@ class ReviewResource extends Resource
                         ->required()
                         ->columnSpanFull(),
 
-
                 ])->columns(5),
 
             ]);

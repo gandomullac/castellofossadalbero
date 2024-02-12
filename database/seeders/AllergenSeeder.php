@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Allergen;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class AllergenSeeder extends Seeder
@@ -30,13 +29,12 @@ class AllergenSeeder extends Seeder
             'Soy' => ['English' => 'Soy', 'Italian' => 'Soia'],
             'Sulfites' => ['English' => 'Sulfites', 'Italian' => 'Solfati'],
         ];
-        
 
         foreach ($allergens as $key => $allergen) {
             Allergen::updateOrCreate([
                 'name_en' => $allergen['English'],
                 'name_it' => $allergen['Italian'],
-                'image' => "assets/img/allergens/". $allergen['English'] . ".svg" 
+                'image' => 'assets/img/allergens/'.$allergen['English'].'.svg',
             ]);
         }
     }

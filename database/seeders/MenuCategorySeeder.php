@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\MenuCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MenuCategorySeeder extends Seeder
@@ -23,11 +22,11 @@ class MenuCategorySeeder extends Seeder
             ['Contorni e dolci', '#9504c8'],
         ];
 
-        foreach($categories as $category){
+        foreach ($categories as $category) {
             MenuCategory::updateOrCreate(
-                [ 'name' => $category[0] ],
-                [ 'color' => $category[1] ],
-                [ 'order' => MenuCategory::count() + 1 ],
+                ['name' => $category[0]],
+                ['color' => $category[1]],
+                ['order' => MenuCategory::count() + 1],
             );
         }
 

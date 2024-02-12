@@ -9,12 +9,10 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -51,28 +49,27 @@ class MenuItemResource extends Resource
                 Group::make()->schema([
                     Section::make(__('castello.contents'))
                         ->schema([
-                        TextInput::make('title')
-                            ->label(__('castello.title'))
-                            ->minLength(5)
-                            ->maxLength(255)
-                            ->required()
-                            ->columnSpanFull(),
+                            TextInput::make('title')
+                                ->label(__('castello.title'))
+                                ->minLength(5)
+                                ->maxLength(255)
+                                ->required()
+                                ->columnSpanFull(),
 
-                        TextInput::make('subtitle')
-                            ->label(__('castello.subtitle'))
-                            ->minLength(5)
-                            ->maxLength(255)
-                            // ->required()
-                            ->columnSpanFull(),
+                            TextInput::make('subtitle')
+                                ->label(__('castello.subtitle'))
+                                ->minLength(5)
+                                ->maxLength(255)
+                                // ->required()
+                                ->columnSpanFull(),
 
+                            CheckboxList::make('allergens')
+                                ->label(__('castello.allergens'))
+                                ->relationship('allergens', 'name_'.app()->getLocale())
+                                ->columns(4)
+                                ->columnSpanFull(),
 
-                        CheckboxList::make('allergens')
-                            ->label(__('castello.allergens'))
-                            ->relationship('allergens', 'name_'.app()->getLocale())
-                            ->columns(4)
-                            ->columnSpanFull(),
-
-                    ])->columns(5),
+                        ])->columns(5),
 
                 ])->columnSpan(2),
 
@@ -134,7 +131,7 @@ class MenuItemResource extends Resource
                     ->relationship('menuCategories', 'name')
                     ->label(__('castello.menu_categories'))
                     ->preload(),
-                    // ->multiple(),
+                // ->multiple(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

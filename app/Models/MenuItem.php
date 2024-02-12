@@ -46,7 +46,7 @@ class MenuItem extends Model
     {
         return $this->menuCategories->sortBy('id')->last()->color;
     }
-    
+
     public function getShortTitleAttribute()
     {
 

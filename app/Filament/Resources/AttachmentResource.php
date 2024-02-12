@@ -30,7 +30,6 @@ class AttachmentResource extends Resource
         return __('castello.attachments');
     }
 
-    
     public static function getNavigationGroup(): ?string
     {
         return __('castello.website');
