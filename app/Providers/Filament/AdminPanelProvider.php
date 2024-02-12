@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\CustomDashboard;
+// use App\Filament\Pages\CustomDashboard;
 use App\Filament\Resources\PostResource\Widgets\PostsOverview;
 use App\Filament\Resources\ReviewResource\Widgets\ReviewsOverview;
 use Filament\Http\Middleware\Authenticate;
