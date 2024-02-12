@@ -15,6 +15,7 @@ class Post extends Model
     protected static function booted()
     {
         static::deleted(function ($post) {
+            // dd($post->image, $post->deleteImage());
             $post->deleteImage();
         });
     }

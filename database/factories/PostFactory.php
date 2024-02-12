@@ -16,15 +16,27 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+
+        $ds = DIRECTORY_SEPARATOR;
+
+        $definition = [
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            'image' => $this->faker->imageUrl(),
+            'image' => 'uploads/posts/' . $this->faker->image(
+                dir:storage_path('app'.$ds.'public'.$ds.'uploads'.$ds.'posts'),
+                width:640,
+                height:480,
+                category:null,
+                fullPath:false,
+                word:"test"
+            ),
             'priority' => $this->faker->randomElement([-1, 0, 1]),
             'published_at' => $this->faker->dateTimeBetween('-1 year', '+1 year'),
             'unpublished_at' => $this->faker->dateTimeBetween('+1 day', '+1 week'),
             'archived' => $this->faker->boolean(10), // 10% chance of being true
         ];
+
+        return $definition;
     }
 }

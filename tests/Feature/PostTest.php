@@ -5,13 +5,18 @@ use App\Models\Post;
 
 use function Pest\Livewire\livewire;
 
+const POST_COUNT = 1;
+
 describe('Posts can be handled', function () {
 
+    afterEach(function () {
+        Post::all()->each(fn($post) => $post->delete());
+    });
+
     test('Posts can be created', function () {
-        $n = 10;
-        Post::factory()->count($n)->create();
+        Post::factory()->count(POST_COUNT)->create();
         
-        expect(Post::count())->toBe($n);
+        expect(Post::count())->toBe(POST_COUNT);
     });
 
     test('A post can be retrieved', function() {
@@ -23,11 +28,10 @@ describe('Posts can be handled', function () {
     });
         
     test('All posts can be retrieved', function() {
-        $n = 10;
-        Post::factory()->count($n)->create();
+        Post::factory()->count(POST_COUNT)->create();
         $posts = Post::all();
 
-        expect(count($posts))->toBe($n);
+        expect(count($posts))->toBe(POST_COUNT);
     });
         
     test('A post can be updated', function() {
@@ -42,6 +46,14 @@ describe('Posts can be handled', function () {
         $post->delete();
         
         expect(Post::find($post->id))->toBeNull();
+    });
+
+    test('A post image can be deleted from disk', function() {
+        $post = Post::factory()->create();
+        $postImage = $post->image;
+        $post->delete();
+
+        expect(file_exists(public_path($postImage)))->toBeFalse();
     });
 
 });
