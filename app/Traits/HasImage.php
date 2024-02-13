@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Storage;
 
 trait HasImage
 {
+    public function getImagePlaceholder()
+    {
+        return '/assets/img/placeholders/img_placeholder.svg';
+    }
+
     public function deleteImage()
     {
         return Storage::delete('public/'.$this->image);
@@ -20,11 +25,6 @@ trait HasImage
 
     public function getImageAttribute($value)
     {
-        return $value ?? asset($this->IMAGE_PLACEHOLDER);
-    }
-
-    public function getImagePlaceholder()
-    {
-        return 'img/placeholders/food_placeholder.jpg';
+        return $value ?? asset($this->getImagePlaceholder());
     }
 }

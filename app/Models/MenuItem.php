@@ -16,7 +16,7 @@ class MenuItem extends Model implements ImageContract
 
     public function getImagePlaceholder()
     {
-        return 'img/placeholders/food_placeholder.jpg';
+        return '/assets/img/placeholders/food_placeholder.jpg';
     }
 
     protected $casts = [
