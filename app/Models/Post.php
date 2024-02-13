@@ -2,28 +2,17 @@
 
 namespace App\Models;
 
+use App\Interfaces\ImageContract;
+use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 
-class Post extends Model
+class Post extends Model implements ImageContract
 {
     use HasFactory;
+    use HasImage;
 
     protected $guarded = [];
-
-    protected static function booted()
-    {
-        static::deleted(function ($post) {
-            // dd($post->image, $post->deleteImage());
-            $post->deleteImage();
-        });
-    }
-
-    public function deleteImage()
-    {
-        return Storage::delete('public/'.$this->image);
-    }
 
     public function isPublished()
     {

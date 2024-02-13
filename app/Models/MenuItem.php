@@ -2,16 +2,22 @@
 
 namespace App\Models;
 
+use App\Interfaces\ImageContract;
+use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MenuItem extends Model
+class MenuItem extends Model implements ImageContract
 {
     use HasFactory;
-
-    const FOOD_PLACEHOLDER = 'img/food_placeholder.jpg';
+    use HasImage;
 
     protected $guarded = [];
+
+    public function getImagePlaceholder()
+    {
+        return 'img/placeholders/food_placeholder.jpg';
+    }
 
     protected $casts = [
         'tags' => 'array',
@@ -35,11 +41,6 @@ class MenuItem extends Model
             foreignPivotKey: 'allergen_id',
             relatedPivotKey: 'menu_item_id'
         );
-    }
-
-    public function getImageAttribute($value)
-    {
-        return $value ?? asset(self::FOOD_PLACEHOLDER);
     }
 
     public function getColorAttribute()
