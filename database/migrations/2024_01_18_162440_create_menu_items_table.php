@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('subtitle')->nullable();
             $table->unsignedFloat('price');
             $table->string('image')->nullable();
-            $table->json('tags')->nullable();
 
             $table->timestamps();
         });

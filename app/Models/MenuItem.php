@@ -14,9 +14,14 @@ class MenuItem extends Model implements ImageContract
 
     protected $guarded = [];
 
-    public function getImagePlaceholder()
+    public static function getImagePlaceholder()
     {
         return '/assets/img/placeholders/food_placeholder.jpg';
+    }
+
+    public static function getImageSaveLocation()
+    {
+        return 'uploads/menu/';
     }
 
     protected $casts = [

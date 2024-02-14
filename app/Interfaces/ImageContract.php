@@ -4,5 +4,7 @@ namespace App\Interfaces;
 
 interface ImageContract
 {
-    public function getImagePlaceholder();
+    public static function getImagePlaceholder();
+
+    public static function getImageSaveLocation();
 }

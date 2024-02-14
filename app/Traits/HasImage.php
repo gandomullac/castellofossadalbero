@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 
 trait HasImage
 {
-    public function getImagePlaceholder()
+    public static function getImagePlaceholder()
     {
         return '/assets/img/placeholders/img_placeholder.svg';
     }

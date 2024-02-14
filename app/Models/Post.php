@@ -12,6 +12,11 @@ class Post extends Model implements ImageContract
     use HasFactory;
     use HasImage;
 
+    public static function getImageSaveLocation()
+    {
+        return 'uploads/post/';
+    }
+
     protected $guarded = [];
 
     public function isPublished()

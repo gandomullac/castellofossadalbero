@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,13 +24,13 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            'image' => 'uploads/posts/'.$this->faker->image(
+            'image' => Post::getImageSaveLocation().$this->faker->image(
                 dir: storage_path('app'.$ds.'public'.$ds.'uploads'.$ds.'posts'),
                 width: 640,
                 height: 480,
                 category: null,
                 fullPath: false,
-                word: 'test'
+                word: 'Test Post'
             ),
             'priority' => $this->faker->randomElement([-1, 0, 1]),
             'published_at' => $this->faker->dateTimeBetween('-1 year', '+1 year'),

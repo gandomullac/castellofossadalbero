@@ -32,9 +32,8 @@ describe('Posts can be handled', function () {
     });
 
     test('A post can be updated', function () {
-        $post = Post::factory()->create(['title' => 'Original title']);
-        $post->title = 'Updated title';
-        $post->save();
+        $post = Post::factory()->create();
+        $post->update(['title' => 'Updated title']);
 
         expect($post->fresh()->title)->toBe('Updated title');
     });
@@ -46,7 +45,7 @@ describe('Posts can be handled', function () {
         expect(Post::find($post->id))->toBeNull();
     });
 
-    test('A post image can be deleted from disk', function () {
+    test("A post's image can be deleted from disk", function () {
         $post = Post::factory()->create();
         $postImage = $post->image;
         $post->delete();
