@@ -17,6 +17,10 @@ class ReviewResource extends Resource
 {
     protected static ?string $model = Review::class;
 
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $navigationIcon = 'heroicon-o-face-smile';
+
     public static function getLabel(): ?string
     {
         return __('castello.review');
@@ -31,10 +35,6 @@ class ReviewResource extends Resource
     {
         return __('castello.website');
     }
-
-    protected static ?int $navigationSort = 2;
-
-    protected static ?string $navigationIcon = 'heroicon-o-face-smile';
 
     public static function form(Form $form): Form
     {
@@ -86,10 +86,10 @@ class ReviewResource extends Resource
                     ->label(__('castello.platform')),
                 TextColumn::make('url')
                     ->label(__('castello.url'))
-                    ->url(fn ($record) => url($record->url)),
+                    ->url(fn($record) => url($record->url)),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -104,7 +104,7 @@ class ReviewResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 

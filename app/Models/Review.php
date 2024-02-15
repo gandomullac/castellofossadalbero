@@ -16,7 +16,7 @@ class Review extends Model
 
         $content = strip_tags($this->content);
 
-        return substr($content, 0, 60).'...';
+        return mb_substr($content, 0, 60) . '...';
 
     }
 }

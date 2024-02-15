@@ -17,14 +17,14 @@ class MenuItemFactory extends Factory
      */
     public function definition(): array
     {
-        $ds = DIRECTORY_SEPARATOR;
+        $s = DIRECTORY_SEPARATOR;
 
         return [
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 1, 100),
-            'image' => MenuItem::getImageSaveLocation().$this->faker->image(
-                dir: storage_path('app'.$ds.'public'.$ds.'uploads'.$ds.'posts'),
+            'image' => MenuItem::getImageSaveLocation() . $this->faker->image(
+                dir: storage_path('app' . $s . 'public' . $s . 'uploads' . $s . 'posts'),
                 width: 640,
                 height: 480,
                 category: null,

@@ -4,19 +4,19 @@ use App\Models\MenuItem;
 
 const MENU_COUNT = 1;
 
-describe('Menu items can be handled', function () {
+describe('Menu items can be handled', function (): void {
 
-    afterEach(function () {
-        MenuItem::all()->each(fn ($item) => $item->delete());
+    afterEach(function (): void {
+        MenuItem::all()->each(fn($item) => $item->delete());
     });
 
-    test('Menu items can be created', function () {
+    test('Menu items can be created', function (): void {
         MenuItem::factory()->count(MENU_COUNT)->create();
 
         expect(MenuItem::count())->toBe(MENU_COUNT);
     });
 
-    test('A menu item can be retrieved', function () {
+    test('A menu item can be retrieved', function (): void {
         $item = MenuItem::factory()->create();
         $retrieved = MenuItem::find($item->id);
 
@@ -24,28 +24,28 @@ describe('Menu items can be handled', function () {
         expect($retrieved->title)->toBe($item->title);
     });
 
-    test('All menu items can be retrieved', function () {
+    test('All menu items can be retrieved', function (): void {
         MenuItem::factory()->count(MENU_COUNT)->create();
         $items = MenuItem::all();
 
         expect(count($items))->toBe(MENU_COUNT);
     });
 
-    test('A menu item can be updated', function () {
+    test('A menu item can be updated', function (): void {
         $item = MenuItem::factory()->create();
         $item->update(['title' => 'New title']);
 
         expect($item->title)->toBe('New title');
     });
 
-    test('A menu item can be deleted', function () {
+    test('A menu item can be deleted', function (): void {
         $item = MenuItem::factory()->create();
         $item->delete();
 
         expect(MenuItem::count())->toBe(0);
     });
 
-    test('A menu item image can be deleted from disk', function () {
+    test('A menu item image can be deleted from disk', function (): void {
         $item = MenuItem::factory()->create();
         $itemImage = $item->image;
         $item->delete();

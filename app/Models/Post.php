@@ -12,30 +12,41 @@ class Post extends Model implements ImageContract
     use HasFactory;
     use HasImage;
 
+    protected $guarded = [];
+
     public static function getImageSaveLocation()
     {
         return 'uploads/post/';
     }
 
-    protected $guarded = [];
+    public static function countPosts(string $type)
+    {
+        return match ($type) {
+            'published' => Post::query()->published()->count(),
+            'scheduled' => Post::query()->scheduled()->count(),
+            'expired' => Post::query()->expired()->count(),
+            'archived' => Post::query()->where('archived', true)->count(),
+            default => Post::all()->count(),
+        };
+    }
 
     public function isPublished()
     {
-        return $this->archived === false &&
+        return false === $this->archived &&
             (
                 (
-                    $this->published_at !== null &&
+                    null !== $this->published_at &&
                     $this->published_at <= now() &&
                     (
-                        $this->unpublished_at === null ||
+                        null === $this->unpublished_at ||
                         $this->unpublished_at >= now()
                     )
                 )
                 ||
                 (
-                    $this->published_at === null &&
+                    null === $this->published_at &&
                     (
-                        $this->unpublished_at === null ||
+                        null === $this->unpublished_at ||
                         $this->unpublished_at >= now()
                     )
                 )
@@ -44,16 +55,16 @@ class Post extends Model implements ImageContract
 
     public function isScheduled()
     {
-        return $this->archived == false &&
-            $this->published_at !== null &&
+        return false === $this->archived &&
+            null !== $this->published_at &&
             $this->published_at > now();
     }
 
     public function isExpired()
     {
-        return $this->archived == false &&
+        return false === $this->archived &&
         (
-            $this->unpublished_at !== null &&
+            null !== $this->unpublished_at &&
             $this->unpublished_at < now()
         );
     }
@@ -62,11 +73,14 @@ class Post extends Model implements ImageContract
     {
         if ($this->archived) {
             return __('castello.archived');
-        } elseif ($this->isPublished()) {
+        }
+        if ($this->isPublished()) {
             return __('castello.published');
-        } elseif ($this->isScheduled()) {
+        }
+        if ($this->isScheduled()) {
             return __('castello.scheduled');
-        } elseif ($this->isExpired()) {
+        }
+        if ($this->isExpired()) {
             return __('castello.expired');
         }
 
@@ -80,25 +94,25 @@ class Post extends Model implements ImageContract
 
         $content = strip_tags($this->content);
 
-        return substr($content, 0, 60).'...';
+        return mb_substr($content, 0, 60) . '...';
 
     }
 
     public function scopePublished($query)
     {
         return $query->where('archived', false)
-            ->where(function ($query) {
-                $query->where(function ($query) {
+            ->where(function ($query): void {
+                $query->where(function ($query): void {
                     $query->whereNotNull('published_at')
                         ->where('published_at', '<=', now())
-                        ->where(function ($query) {
+                        ->where(function ($query): void {
                             $query->whereNull('unpublished_at')
                                 ->orWhere('unpublished_at', '>=', now());
                         });
                 })
-                    ->orWhere(function ($query) {
+                    ->orWhere(function ($query): void {
                         $query->whereNull('published_at')
-                            ->where(function ($query) {
+                            ->where(function ($query): void {
                                 $query->whereNull('unpublished_at')
                                     ->orWhere('unpublished_at', '>=', now());
                             });
@@ -116,24 +130,13 @@ class Post extends Model implements ImageContract
     public function scopeExpired($query)
     {
         return $query->where('archived', false)
-            ->where(function ($query) {
+            ->where(function ($query): void {
                 $query->whereNotNull('published_at')
                     ->where('published_at', '<=', now())
-                    ->where(function ($query) {
+                    ->where(function ($query): void {
                         $query->whereNull('unpublished_at')
                             ->orWhere('unpublished_at', '<=', now());
                     });
             });
-    }
-
-    public static function countPosts(string $type)
-    {
-        return match ($type) {
-            'published' => Post::query()->published()->count(),
-            'scheduled' => Post::query()->scheduled()->count(),
-            'expired' => Post::query()->expired()->count(),
-            'archived' => Post::query()->where('archived', true)->count(),
-            default => Post::all()->count(),
-        };
     }
 }

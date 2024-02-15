@@ -22,6 +22,10 @@ class MenuCategoryResource extends Resource
 {
     protected static ?string $model = MenuCategory::class;
 
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $navigationIcon = 'heroicon-o-bars-3';
+
     public static function getLabel(): ?string
     {
         return __('castello.menu_category');
@@ -36,10 +40,6 @@ class MenuCategoryResource extends Resource
     {
         return __('castello.menu');
     }
-
-    protected static ?int $navigationSort = 4;
-
-    protected static ?string $navigationIcon = 'heroicon-o-bars-3';
 
     public static function form(Form $form): Form
     {
@@ -60,8 +60,8 @@ class MenuCategoryResource extends Resource
                         ->minValue(0)
                         ->maxValue(10)
                         ->default(MenuCategory::highestAvailableOrder())
-                        ->afterStateHydrated(function (string $operation, string $state, Set $set, Get $get) {
-                            if ($operation === 'edit') {
+                        ->afterStateHydrated(function (string $operation, string $state, Set $set, Get $get): void {
+                            if ('edit' === $operation) {
                                 return;
                             }
 
@@ -97,7 +97,7 @@ class MenuCategoryResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

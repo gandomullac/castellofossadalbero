@@ -21,6 +21,6 @@ class Allergen extends Model
 
     public function getNameAttribute()
     {
-        return $this->attributes['name_'.app()->getlocale()];
+        return $this->attributes['name_' . app()->getlocale()];
     }
 }

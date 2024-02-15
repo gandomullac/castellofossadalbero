@@ -28,6 +28,10 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+
     public static function getLabel(): ?string
     {
         return __('castello.news');
@@ -38,10 +42,6 @@ class PostResource extends Resource
     {
         return __('castello.website');
     }
-
-    protected static ?int $navigationSort = 1;
-
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
@@ -117,7 +117,7 @@ class PostResource extends Resource
                 TextColumn::make('publishStatus')
                     ->label(__('castello.publish_status'))
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         __('castello.expired') => 'gray',
                         __('castello.scheduled') => 'warning',
                         __('castello.published') => 'success',
@@ -128,12 +128,12 @@ class PostResource extends Resource
                 IconColumn::make('priority')
                     ->label(__('castello.priority'))
                     ->sortable()
-                    ->icon(fn (string $state): string => match ($state) {
+                    ->icon(fn(string $state): string => match ($state) {
                         '1' => 'heroicon-o-arrow-up-circle',
                         '0' => 'heroicon-o-minus-circle',
                         '-1' => 'heroicon-o-arrow-down-circle',
                     })
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         '1' => 'danger',
                         '0' => 'info',
                         '-1' => 'warning',
@@ -141,8 +141,8 @@ class PostResource extends Resource
 
                 CheckboxColumn::make('archived')
                     ->label(__('castello.force_archive'))
-                    ->afterStateUpdated(function (string $state, Set $set) {
-                        if ($state == 'true') {
+                    ->afterStateUpdated(function (string $state, Set $set): void {
+                        if ('true' === $state) {
                             $set('publishStatus', 'archived');
                         }
                     }),
@@ -174,7 +174,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 

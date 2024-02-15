@@ -14,6 +14,10 @@ class MenuItem extends Model implements ImageContract
 
     protected $guarded = [];
 
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
     public static function getImagePlaceholder()
     {
         return '/assets/img/placeholders/food_placeholder.jpg';
@@ -23,10 +27,6 @@ class MenuItem extends Model implements ImageContract
     {
         return 'uploads/menu/';
     }
-
-    protected $casts = [
-        'tags' => 'array',
-    ];
 
     public function menuCategories()
     {
@@ -58,7 +58,7 @@ class MenuItem extends Model implements ImageContract
 
         $content = strip_tags($this->title);
 
-        return substr($content, 0, 75).'...';
+        return mb_substr($content, 0, 75) . '...';
 
     }
 }

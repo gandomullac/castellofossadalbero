@@ -28,10 +28,10 @@ class MenuItemsRelationManager extends RelationManager
             ->recordTitleAttribute('menuItem')
             ->columns([
                 Tables\Columns\TextColumn::make('title')
-                    ->description(fn ($record) => ($record->subtitle)),
+                    ->description(fn($record) => ($record->subtitle)),
             ])
             ->filters([
-                //
+
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),

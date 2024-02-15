@@ -22,6 +22,10 @@ class MenuItemResource extends Resource
 {
     protected static ?string $model = MenuItem::class;
 
+    protected static ?int $navigationSort = 5;
+
+    protected static ?string $navigationIcon = 'heroicon-o-sparkles';
+
     public static function getLabel(): ?string
     {
         return __('castello.menu_item');
@@ -36,10 +40,6 @@ class MenuItemResource extends Resource
     {
         return __('castello.menu');
     }
-
-    protected static ?int $navigationSort = 5;
-
-    protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 
     public static function form(Form $form): Form
     {
@@ -65,7 +65,7 @@ class MenuItemResource extends Resource
 
                             CheckboxList::make('allergens')
                                 ->label(__('castello.allergens'))
-                                ->relationship('allergens', 'name_'.app()->getLocale())
+                                ->relationship('allergens', 'name_' . app()->getLocale())
                                 ->columns(4)
                                 ->columnSpanFull(),
 
@@ -147,7 +147,7 @@ class MenuItemResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 

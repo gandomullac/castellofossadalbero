@@ -34,7 +34,7 @@ class AllergenSeeder extends Seeder
             Allergen::updateOrCreate([
                 'name_en' => $allergen['English'],
                 'name_it' => $allergen['Italian'],
-                'image' => 'assets/img/allergens/'.$allergen['English'].'.svg',
+                'image' => 'assets/img/allergens/' . $allergen['English'] . '.svg',
             ]);
         }
     }

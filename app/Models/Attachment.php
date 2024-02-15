@@ -14,18 +14,18 @@ class Attachment extends Model
 
     public function getFileUrlAttribute()
     {
-        return url(Storage::url('public/'.$this->path));
+        return url(Storage::url('public/' . $this->path));
     }
 
     public function getFileSizeAttribute()
     {
-        $size = Storage::size('public/'.$this->path) / 1024 / 1024;
+        $size = Storage::size('public/' . $this->path) / 1024 / 1024;
 
         return number_format($size, 2);
     }
 
     public function deleteFile()
     {
-        return Storage::delete('public/'.$this->path);
+        return Storage::delete('public/' . $this->path);
     }
 }

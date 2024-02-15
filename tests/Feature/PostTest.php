@@ -4,19 +4,19 @@ use App\Models\Post;
 
 const POST_COUNT = 1;
 
-describe('Posts can be handled', function () {
+describe('Posts can be handled', function (): void {
 
-    afterEach(function () {
-        Post::all()->each(fn ($post) => $post->delete());
+    afterEach(function (): void {
+        Post::all()->each(fn($post) => $post->delete());
     });
 
-    test('Posts can be created', function () {
+    test('Posts can be created', function (): void {
         Post::factory()->count(POST_COUNT)->create();
 
         expect(Post::count())->toBe(POST_COUNT);
     });
 
-    test('A post can be retrieved', function () {
+    test('A post can be retrieved', function (): void {
         $post = Post::factory()->create();
         $retrieved = Post::find($post->id);
 
@@ -24,28 +24,28 @@ describe('Posts can be handled', function () {
         expect($retrieved->title)->toBe($post->title);
     });
 
-    test('All posts can be retrieved', function () {
+    test('All posts can be retrieved', function (): void {
         Post::factory()->count(POST_COUNT)->create();
         $posts = Post::all();
 
         expect(count($posts))->toBe(POST_COUNT);
     });
 
-    test('A post can be updated', function () {
+    test('A post can be updated', function (): void {
         $post = Post::factory()->create();
         $post->update(['title' => 'Updated title']);
 
         expect($post->fresh()->title)->toBe('Updated title');
     });
 
-    test('A post can be deleted', function () {
+    test('A post can be deleted', function (): void {
         $post = Post::factory()->create();
         $post->delete();
 
         expect(Post::find($post->id))->toBeNull();
     });
 
-    test("A post's image can be deleted from disk", function () {
+    test("A post's image can be deleted from disk", function (): void {
         $post = Post::factory()->create();
         $postImage = $post->image;
         $post->delete();

@@ -17,6 +17,8 @@ class SettingResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
+    protected static ?int $navigationSort = 10;
+
     public static function getLabel(): ?string
     {
         return __('castello.setting');
@@ -31,8 +33,6 @@ class SettingResource extends Resource
     {
         return __('castello.company');
     }
-
-    protected static ?int $navigationSort = 10;
 
     public static function form(Form $form): Form
     {
@@ -58,7 +58,7 @@ class SettingResource extends Resource
 
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -68,7 +68,7 @@ class SettingResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 

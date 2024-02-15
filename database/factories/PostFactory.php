@@ -24,8 +24,8 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            'image' => Post::getImageSaveLocation().$this->faker->image(
-                dir: storage_path('app'.$ds.'public'.$ds.'uploads'.$ds.'posts'),
+            'image' => Post::getImageSaveLocation() . $this->faker->image(
+                dir: storage_path('app' . $ds . 'public' . $ds . 'uploads' . $ds . 'posts'),
                 width: 640,
                 height: 480,
                 category: null,

@@ -12,6 +12,12 @@ class MenuCategory extends Model
 
     protected $guarded = [];
 
+    public static function highestAvailableOrder()
+    {
+        return self::max('order') + 1;
+
+    }
+
     public function menuItems()
     {
         return $this->belongsToMany(
@@ -30,11 +36,5 @@ class MenuCategory extends Model
     public function getSlugAttribute()
     {
         return Str::slug($this->name);
-    }
-
-    public static function highestAvailableOrder()
-    {
-        return self::max('order') + 1;
-
     }
 }

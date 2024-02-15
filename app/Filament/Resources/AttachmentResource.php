@@ -19,6 +19,10 @@ class AttachmentResource extends Resource
 {
     protected static ?string $model = Attachment::class;
 
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
+
     public static function getLabel(): ?string
     {
         return __('castello.attachment');
@@ -35,10 +39,6 @@ class AttachmentResource extends Resource
         return __('castello.website');
     }
 
-    protected static ?int $navigationSort = 3;
-
-    protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
-
     public static function form(Form $form): Form
     {
         return $form
@@ -50,8 +50,8 @@ class AttachmentResource extends Resource
                             ->disk('public')
                             ->directory('uploads/attachments')
                             ->getUploadedFileNameForStorageUsing(
-                                fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                                    ->prepend(now()->timestamp.'_'),
+                                fn(TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                                    ->prepend(now()->timestamp . '_'),
                             )
                             ->storeFileNamesIn('name')
                             ->columnSpan(1)
@@ -67,7 +67,7 @@ class AttachmentResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->label(__('castello.name'))
-                    ->url(fn ($record) => url($record->fileUrl))
+                    ->url(fn($record) => url($record->fileUrl))
                     ->searchable()
                     ->wrap()
                     ->sortable(),
@@ -91,12 +91,12 @@ class AttachmentResource extends Resource
 
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
-                    ->before(function ($record) {
+                    ->before(function ($record): void {
                         $record->deleteFile();
                     }),
             ])
@@ -110,7 +110,7 @@ class AttachmentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
