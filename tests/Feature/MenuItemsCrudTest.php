@@ -53,4 +53,6 @@ describe('Menu items can be handled', function (): void {
         expect(file_exists(public_path($itemImage)))->toBeFalse();
     });
 
+    test('A menu item image can be updated', function (): void {})->skip();
+
 });
