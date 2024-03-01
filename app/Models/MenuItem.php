@@ -6,6 +6,7 @@ use App\Interfaces\ImageContract;
 use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class MenuItem extends Model implements ImageContract
 {
@@ -61,4 +62,5 @@ class MenuItem extends Model implements ImageContract
         return mb_substr($content, 0, 75) . '...';
 
     }
+
 }
