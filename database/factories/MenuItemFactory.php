@@ -23,7 +23,7 @@ class MenuItemFactory extends Factory
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 1, 100),
-            'image' => MenuItem::getImageSaveLocation() . $this->faker->image(
+            'image_path' => MenuItem::getImageSaveLocation() . $this->faker->image(
                 dir: storage_path('app' . $s . 'public' . $s . 'uploads' . $s . 'posts'),
                 width: 640,
                 height: 480,

@@ -16,9 +16,9 @@ trait HasImage
         return Storage::delete('public/' . $this->image);
     }
 
-    public function getImageAttribute($value)
+    public function getImageAttribute()
     {
-        return $value ?? asset($this->getImagePlaceholder());
+        return Storage::url($this->image_path) ?? asset($this->getImagePlaceholder());
     }
 
     protected static function booted(): void

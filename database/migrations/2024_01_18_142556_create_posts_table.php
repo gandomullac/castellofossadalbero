@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->string('content');
-            $table->string('image');
+            $table->string('image_path');
             $table->unsignedInteger('priority')->default(0);
 
             $table->date('published_at')->nullable();

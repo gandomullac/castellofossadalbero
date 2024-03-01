@@ -13,7 +13,7 @@ return [
     'reviews' => 'Recensioni',
     'news' => 'News',
 
-    'image' => 'Immagine',
+    'image_path' => 'Immagine',
     'contents' => 'Dettagli',
     'title' => 'Titolo',
     'subtitle' => 'Sottotitolo',

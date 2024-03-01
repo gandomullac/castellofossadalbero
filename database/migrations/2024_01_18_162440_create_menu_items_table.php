@@ -15,7 +15,7 @@ return new class () extends Migration {
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->unsignedFloat('price');
-            $table->string('image')->nullable();
+            $table->string('image_path')->nullable();
 
             $table->timestamps();
         });

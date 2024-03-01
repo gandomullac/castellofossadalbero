@@ -75,7 +75,7 @@ class MenuItemResource extends Resource
 
                 Group::make()->schema([
                     Section::make(__('castello.image'))->schema([
-                        FileUpload::make('image')
+                        FileUpload::make('image_path')
                             ->label('')
                             ->avatar()
                             ->disk('public')
@@ -110,7 +110,7 @@ class MenuItemResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
+                ImageColumn::make('image_path')
                     ->label(__('castello.image'))
                     ->toggleable(),
 

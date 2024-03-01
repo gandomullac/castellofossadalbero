@@ -70,7 +70,7 @@ class PostResource extends Resource
                 Group::make()->schema([
                     Section::make(__('castello.image'))
                         ->schema([
-                            FileUpload::make('image')
+                            FileUpload::make('image_path')
                                 ->label('')
                                 // ->avatar()
                                 ->disk('public')
@@ -103,7 +103,7 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
+                ImageColumn::make('image_path')
                     ->toggleable()
                     ->label(__('castello.image')),
                 TextColumn::make('title')

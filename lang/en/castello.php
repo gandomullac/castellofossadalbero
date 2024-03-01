@@ -12,7 +12,7 @@ return [
     'reviews' => 'reviews',
     'news' => 'news',
 
-    'image' => 'image',
+    'image_path' => 'image_path',
     'contents' => 'contents',
     'title' => 'title',
     'subtitle' => 'subtitle',
