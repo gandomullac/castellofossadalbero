@@ -13,7 +13,13 @@ trait HasImage
 
     public function getImageAttribute()
     {
-        return Storage::url($this->image_path) ?? asset($this->getImagePlaceholder());
+        if (null === $this->image_path) {
+            return asset($this->getImagePlaceholder());
+        }
+        if (Storage::disk('public')->exists($this->image_path)) {
+            return Storage::url($this->image_path);
+        }
+        return asset($this->getImagePlaceholder());
     }
 
     protected static function booted(): void

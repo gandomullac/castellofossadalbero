@@ -3,7 +3,8 @@
     col-lg-6
     menu-item
     @foreach ($item->menuCategories as $category)
-        filter-{{ $category->slug }} @endforeach
+        filter-{{ $category->slug }}
+    @endforeach
 ">
     <img src="{{ asset($item->Image) }}" class="menu-img-starter" alt=""
         style="border: 4px solid {{ $item->color }}BB;">
@@ -13,5 +14,20 @@
     </div>
     <div class="menu-ingredients">
         {{ $item->subtitle }}
+    </div>
+    <div class="menu-ingredients mt-1">
+        @foreach ($item->allergens as $allergen)
+            <span>
+                <img
+                    src="{{ asset($allergen->image_path) }}"
+                    alt="{{ $allergen->name }}"
+                    title="Contiene {{ Str::lower($allergen->name) }}"
+                    style="
+                        max-height: 22px;
+                        cursor: pointer;
+                    "
+                >
+            </span>
+        @endforeach
     </div>
 </div>
