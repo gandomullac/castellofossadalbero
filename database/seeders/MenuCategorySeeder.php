@@ -22,11 +22,13 @@ class MenuCategorySeeder extends Seeder
             ['Contorni e dolci', '#9504c8'],
         ];
 
+        $iteration = 0;
         foreach ($categories as $category) {
+            $iteration++;
             MenuCategory::updateOrCreate(
                 ['name' => $category[0]],
                 ['color' => $category[1]],
-                ['order' => MenuCategory::count() + 1],
+                ['order' => $iteration],
             );
         }
 

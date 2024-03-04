@@ -110,8 +110,10 @@ class MenuItemResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image_path')
-                    ->label(__('castello.image'))
+                ImageColumn::make('image')
+                    ->defaultImageUrl(url(MenuItem::getImagePlaceholder()))
+                    ->circular()
+                    ->label(__('castello.image_path'))
                     ->toggleable(),
 
                 TextColumn::make('shortTitle')

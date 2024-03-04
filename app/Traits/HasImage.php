@@ -11,7 +11,7 @@ trait HasImage
         return '/assets/img/placeholders/img_placeholder.svg';
     }
 
-    public function getImageAttribute()
+    public function getImageUrlAttribute()
     {
         if (null === $this->image_path) {
             return asset($this->getImagePlaceholder());
@@ -21,6 +21,18 @@ trait HasImage
         }
         return asset($this->getImagePlaceholder());
     }
+
+    public function getImageAttribute()
+    {
+        if (null === $this->image_path) {
+            return asset($this->getImagePlaceholder());
+        }
+        if (Storage::disk('public')->exists($this->image_path)) {
+            return $this->image_path;
+        }
+        return asset($this->getImagePlaceholder());
+    }
+
 
     protected static function booted(): void
     {

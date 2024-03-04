@@ -103,9 +103,10 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image_path')
+                ImageColumn::make('image')
                     ->toggleable()
-                    ->label(__('castello.image')),
+                    ->square()
+                    ->label(__('castello.image_path')),
                 TextColumn::make('title')
                     ->label(__('castello.title'))
                     // ->description(fn (Post $record): string => $record->excerpt)
