@@ -35,8 +35,7 @@
     <!-- Template Main CSS File -->
     <link href={{ asset("assets/css/style.css") }} rel="stylesheet">
 
-    {{-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b0ec5dfa-b556-47c8-aedb-a5f3c5940792"
-        data-blockingmode="auto" type="text/javascript"></script> --}}
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="81a22814-56e4-4f12-be51-bf0be6ed0923" data-blockingmode="auto" type="text/javascript"></script>
 </head>
 
 <body>
@@ -44,13 +43,13 @@
     @include('topbar')
 
     @include('navbar')
-    
+
     @include('hero')
 
     <main id="main">
 
         @include('main.about')
-        
+
         @include('main.gallery')
 
         @include('main.why-us')
@@ -58,7 +57,7 @@
         {{-- @include('main.swimming-pool') --}}
 
         @include('main.specials')
-        
+
         @if ($events->count() > 0)
             @include('main.events')
         @endif

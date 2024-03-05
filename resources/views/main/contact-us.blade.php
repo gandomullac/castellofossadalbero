@@ -7,6 +7,12 @@
         </div>
     </div>
 
+    <div data-aos="fade-up">
+        <iframe style="border:0; width: 100%; height: 350px;"
+          src="https://maps.google.com/maps?q=via%20chiorboli%20366%20fossadalbero%20&t=&z=11&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" allowfullscreen></iframe>
+    </div>
+
     <div data-aos="fade-up" id="iframeContainer"></div>
 
     <div class="container" data-aos="fade-up">
