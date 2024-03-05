@@ -8,7 +8,9 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class PostsOverview extends BaseWidget
 {
-    protected static ?string $pollingInterval = '3s';
+    // protected static ?string $pollingInterval = '3s';
+
+    protected $listeners = ['updatePostsOverview' => '$refresh'];
 
     protected function getStats(): array
     {

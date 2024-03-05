@@ -11,6 +11,11 @@ class ListPosts extends ListRecords
 {
     protected static string $resource = PostResource::class;
 
+    public function updated($name): void
+    {
+        $this->emit('updateUserOverview');
+    }
+
     protected function getHeaderActions(): array
     {
         return [
