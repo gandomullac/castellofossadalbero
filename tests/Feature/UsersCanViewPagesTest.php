@@ -6,13 +6,14 @@ use App\Filament\Resources\MenuItemResource\Pages\ListMenuItems;
 use App\Filament\Resources\PostResource\Pages\ListPosts;
 use App\Filament\Resources\ReviewResource\Pages\ListReviews;
 use App\Filament\Resources\SettingResource\Pages\ListSettings;
+use App\Models\User;
 
 use function Pest\Livewire\livewire;
 
 describe('Users can view pages', function (): void {
     beforeEach(function (): void {
-        // $this->user = $this->createUser();
-        // $this->actingAs($this->user);
+        $this->user = User::factory()->create();
+        $this->actingAs($this->user);
     });
 
     it('can render posts page', function (): void {
