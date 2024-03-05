@@ -6,7 +6,7 @@
         filter-{{ $category->slug }}
     @endforeach
 ">
-    <img src="{{ asset($item->Image) }}" class="menu-img-starter" alt=""
+    <img src="{{ asset($item->imageUrl) }}" class="menu-img-starter" alt=""
         style="border: 4px solid {{ $item->color }}BB;">
 
     <div class="menu-content">
