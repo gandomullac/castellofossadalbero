@@ -6,7 +6,7 @@
         <p>Scopri il nostro menù</p>
       </div>
 
-      
+
       <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class="col-lg-12 d-flex justify-content-center">
           <ul id="menu-flters">
@@ -25,7 +25,13 @@
             @include('main.menu.item')
         @endforeach
 
-    
+    </div>
 
+    <div class="container" data-aos="fade-up">
+        <p class="mt-4 pt-4 text-center fst-italic">
+            I commensali affetti da intolleranze e/o allergie, oppure che seguono specifici regimi
+            alimentari, possono concordare i piatti con lo staff del Ristorante.
+        </p>
+    </div>
 
-  </section>
+</section>
