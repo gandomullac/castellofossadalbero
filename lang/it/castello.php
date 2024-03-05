@@ -75,4 +75,14 @@ return [
 
     'publish_status' => 'Stato',
     'force_archive' => 'Archivia',
+
+    'user' => 'Utente',
+    'users' => 'Utenti',
+    'user-name' => 'Nome',
+    'user-email' => 'Email',
+    'user-role' => 'Ruolo',
+    'user-created-at' => 'Data creazione',
+    'user-role-admin' => 'Amministratore',
+    'user-role-editor' => 'Editor',
+    'user-password' => 'Password',
 ];
