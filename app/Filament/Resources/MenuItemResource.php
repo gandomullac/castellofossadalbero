@@ -121,7 +121,8 @@ class MenuItemResource extends Resource
                     ->sortable(),
 
                 TextColumn::make('menuCategories.name')
-                    ->label(__('castello.menu_categories')),
+                    ->label(__('castello.menu_categories'))
+                    ->sortable(),
 
                 TextColumn::make('price')
                     ->label(__('castello.price'))

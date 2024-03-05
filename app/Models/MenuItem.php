@@ -6,7 +6,6 @@ use App\Interfaces\ImageContract;
 use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 
 class MenuItem extends Model implements ImageContract
 {
@@ -56,11 +55,16 @@ class MenuItem extends Model implements ImageContract
 
     public function getShortTitleAttribute()
     {
-
         $content = strip_tags($this->title);
 
-        return mb_substr($content, 0, 75) . '...';
+        $shortContent = mb_substr($content, 0, 60);
 
+        if(mb_strlen($content) > 60) {
+            $shortContent .= '...';
+        }
+
+        return $shortContent;
     }
+
 
 }
