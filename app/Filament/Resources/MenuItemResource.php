@@ -113,7 +113,7 @@ class MenuItemResource extends Resource
                 ImageColumn::make('image')
                     ->defaultImageUrl(url(MenuItem::getImagePlaceholder()))
                     ->circular()
-                    ->label(__('castello.image_path'))
+                    ->label(__('castello.image'))
                     ->toggleable(),
 
                 TextColumn::make('shortTitle')

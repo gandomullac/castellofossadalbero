@@ -13,6 +13,7 @@ return [
     'news' => 'news',
 
     'image_path' => 'image_path',
+    'image' => 'image',
     'contents' => 'contents',
     'title' => 'title',
     'subtitle' => 'subtitle',

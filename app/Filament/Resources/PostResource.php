@@ -49,7 +49,7 @@ class PostResource extends Resource
             ->schema([
 
                 Group::make()->schema([
-                    Section::make('Contents')->schema([
+                    Section::make(__('castello.contents'))->schema([
                         TextInput::make('title')
                             ->label(__('castello.title'))
                             ->minLength(5)

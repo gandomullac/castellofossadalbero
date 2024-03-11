@@ -14,6 +14,7 @@ return [
     'news' => 'News',
 
     'image_path' => 'Immagine',
+    'image' => 'Immagine',
     'contents' => 'Dettagli',
     'title' => 'Titolo',
     'subtitle' => 'Sottotitolo',
