@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -84,15 +85,21 @@ class ReviewResource extends Resource
                     ->label(__('castello.excerpt')),
                 TextColumn::make('platform')
                     ->label(__('castello.platform')),
-                TextColumn::make('url')
+                // TextColumn::make('url')
+                //     ->label(__('castello.url'))
+                //     ->url(fn($record) => url($record->url)),
+                IconColumn::make('url')
                     ->label(__('castello.url'))
-                    ->url(fn($record) => url($record->url)),
+                    ->icon('heroicon-o-link')
+                    ->url(fn($record) => url($record->url))
+                    ->openUrlInNewTab(),
             ])
             ->filters([
 
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

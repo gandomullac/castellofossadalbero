@@ -68,6 +68,7 @@ class AttachmentResource extends Resource
                 TextColumn::make('name')
                     ->label(__('castello.name'))
                     ->url(fn($record) => url($record->fileUrl))
+                    ->openUrlInNewTab()
                     ->searchable()
                     ->wrap()
                     ->sortable(),
