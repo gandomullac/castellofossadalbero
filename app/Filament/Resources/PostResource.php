@@ -109,7 +109,7 @@ class PostResource extends Resource
                     ->label(__('castello.image_path')),
                 TextColumn::make('title')
                     ->label(__('castello.title'))
-                    // ->description(fn (Post $record): string => $record->excerpt)
+                    ->description(fn(Post $record): string => $record->excerpt)
                     ->wrap()
                     ->sortable(),
                 TextColumn::make('subtitle')
