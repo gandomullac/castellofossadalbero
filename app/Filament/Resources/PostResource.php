@@ -123,8 +123,8 @@ class PostResource extends Resource
                         __('castello.scheduled') => 'warning',
                         __('castello.published') => 'success',
                         __('castello.archived') => 'danger',
-                    })
-                    ->sortable(),
+                    }),
+                // ->sortable(),
                 // TextColumn::make('created_at')->date(),
                 IconColumn::make('priority')
                     ->label(__('castello.priority'))
