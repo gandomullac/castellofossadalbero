@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Interfaces\ImageContract;
 use App\Traits\HasImage;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +15,11 @@ class Post extends Model implements ImageContract
     use HasImage;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'archived' => 'boolean',
+        'unpublished_at' => 'datetime:Y-m-d H:i:s',
+    ];
 
     public static function getImageSaveLocation()
     {
@@ -32,25 +39,10 @@ class Post extends Model implements ImageContract
 
     public function isPublished()
     {
-        return false === $this->archived &&
-            (
-                (
-                    null !== $this->published_at &&
-                    $this->published_at <= now() &&
-                    (
-                        null === $this->unpublished_at ||
-                        $this->unpublished_at >= now()
-                    )
-                )
-                ||
-                (
-                    null === $this->published_at &&
-                    (
-                        null === $this->unpublished_at ||
-                        $this->unpublished_at >= now()
-                    )
-                )
-            );
+        return
+            false === $this->archived &&
+            ! $this->isExpired() &&
+            ! $this->isScheduled();
     }
 
     public function isScheduled()
@@ -62,20 +54,16 @@ class Post extends Model implements ImageContract
 
     public function isExpired()
     {
-        return false === $this->archived &&
-        (
+        return
             null !== $this->unpublished_at &&
-            $this->unpublished_at < now()
-        );
+            $this->unpublished_at->isPast() &&
+            (false === $this->archived);
     }
 
     public function getPublishStatusAttribute()
     {
         if ($this->archived) {
             return __('castello.archived');
-        }
-        if ($this->isPublished()) {
-            return __('castello.published');
         }
         if ($this->isScheduled()) {
             return __('castello.scheduled');
@@ -86,8 +74,6 @@ class Post extends Model implements ImageContract
 
         return __('castello.published');
     }
-
-    // method to show a short excerpt of the post, without html tags
 
     public function getExcerptAttribute()
     {
@@ -139,4 +125,19 @@ class Post extends Model implements ImageContract
                     });
             });
     }
+
+
+    // protected function archived(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn(int $value) => (bool) $value
+    //     );
+    // }
+
+    // protected function unpublished_at(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn(string $value) => Carbon::parse($value)
+    //     );
+    // }
 }
