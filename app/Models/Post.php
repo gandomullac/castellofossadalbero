@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\Interfaces\ImageContract;
+use App\Traits\HasExcerpt;
 use App\Traits\HasImage;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model implements ImageContract
 {
+    use HasExcerpt;
     use HasFactory;
     use HasImage;
 
@@ -75,15 +75,6 @@ class Post extends Model implements ImageContract
         return __('castello.published');
     }
 
-    public function getExcerptAttribute()
-    {
-
-        $content = strip_tags($this->content);
-
-        return mb_substr($content, 0, 60) . '...';
-
-    }
-
     public function scopePublished($query)
     {
         return $query->where('archived', false)
@@ -125,19 +116,4 @@ class Post extends Model implements ImageContract
                     });
             });
     }
-
-
-    // protected function archived(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn(int $value) => (bool) $value
-    //     );
-    // }
-
-    // protected function unpublished_at(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn(string $value) => Carbon::parse($value)
-    //     );
-    // }
 }
