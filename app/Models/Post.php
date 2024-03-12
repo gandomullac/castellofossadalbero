@@ -106,14 +106,10 @@ class Post extends Model implements ImageContract
 
     public function scopeExpired($query)
     {
-        return $query->where('archived', false)
+        return $query->whereNotNull('unpublished_at')
             ->where(function ($query): void {
-                $query->whereNotNull('published_at')
-                    ->where('published_at', '<=', now())
-                    ->where(function ($query): void {
-                        $query->whereNull('unpublished_at')
-                            ->orWhere('unpublished_at', '<=', now());
-                    });
+                $query->where('unpublished_at', '<', now())
+                    ->orWhere('archived', false);
             });
     }
 }
