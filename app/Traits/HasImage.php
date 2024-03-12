@@ -34,7 +34,7 @@ trait HasImage
     }
 
 
-    protected static function booted(): void
+    protected static function bootHasImage(): void
     {
         static::deleted(function ($model): void {
             Storage::disk('public')->delete($model->image_path);

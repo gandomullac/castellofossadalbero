@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Interfaces\ImageContract;
 use App\Traits\HasExcerpt;
 use App\Traits\HasImage;
+use App\Traits\HasUserAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +14,7 @@ class Post extends Model implements ImageContract
     use HasExcerpt;
     use HasFactory;
     use HasImage;
+    use HasUserAttributes;
 
     protected $guarded = [];
 
