@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
+use Auth;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -92,6 +93,11 @@ class PostResource extends Resource
                             ])->default(0),
                         Checkbox::make('archived')
                             ->label(__('castello.archived')),
+                        Checkbox::make('protected')
+                            ->label(__('castello.protected'))
+                            ->hidden(
+                                fn(): bool => ! Auth::user()->isAdmin()
+                            ),
 
                     ]),
                 ]),
@@ -140,13 +146,18 @@ class PostResource extends Resource
                         '-1' => 'warning',
                     }),
 
+                /*
                 CheckboxColumn::make('archived')
                     ->label(__('castello.force_archive'))
+                    ->disabled(
+                        fn(Post $record): bool => $record->protected && ! Auth::user()->isAdmin()
+                    )
                     ->afterStateUpdated(function (string $state, Set $set): void {
                         if ('true' === $state) {
                             $set('publishStatus', 'archived');
                         }
                     }),
+                */
 
             ])->defaultSort('Priority', 'desc')
             ->filters([
@@ -162,7 +173,7 @@ class PostResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
 
             ])
             ->bulkActions([

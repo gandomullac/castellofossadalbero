@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasUserAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class Attachment extends Model
 {
     use HasFactory;
+    use HasUserAttributes;
 
     protected $guarded = [];
 

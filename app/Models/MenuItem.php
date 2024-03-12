@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Interfaces\ImageContract;
 use App\Traits\HasImage;
+use App\Traits\HasUserAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +12,7 @@ class MenuItem extends Model implements ImageContract
 {
     use HasFactory;
     use HasImage;
+    use HasUserAttributes;
 
     protected $guarded = [];
 

@@ -60,6 +60,7 @@ return [
     'unpublished_at' => 'Data di rimozione',
     'priority' => 'Priorità',
     'archived' => 'Archiviato',
+    'protected' => 'Protetto',
 
     'priority_high' => 'Alta',
     'priority_medium' => 'Media',

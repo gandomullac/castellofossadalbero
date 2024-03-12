@@ -59,6 +59,8 @@ return [
     'unpublished_at' => 'Unpublish date',
     'priority' => 'Priority',
     'archived' => 'Archived',
+    'protected' => 'Protected',
+
 
     'priority_high' => 'High',
     'priority_medium' => 'Medium',
