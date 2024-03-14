@@ -3,7 +3,9 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AttachmentResource\Pages;
+use App\Filament\Tables\Actions\ProtectAction;
 use App\Models\Attachment;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
@@ -12,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 
@@ -56,6 +59,11 @@ class AttachmentResource extends Resource
                             ->storeFileNamesIn('name')
                             ->columnSpan(1)
                             ->required(),
+                        Checkbox::make('protected')
+                            ->label(__('castello.protected'))
+                            ->hidden(
+                                fn(): bool => ! Auth::user()->isAdmin()
+                            ),
                     ])->columns(2),
                 ])->columnSpanFull(),
             ]);
@@ -100,6 +108,7 @@ class AttachmentResource extends Resource
                     ->before(function ($record): void {
                         $record->deleteFile();
                     }),
+                ProtectAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

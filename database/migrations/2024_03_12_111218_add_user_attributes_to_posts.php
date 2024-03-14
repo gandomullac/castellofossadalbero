@@ -28,6 +28,7 @@ return new class () extends Migration {
             $table->dropForeign(['created_by']);
             $table->dropForeign(['last_edit_by']);
             $table->dropColumn(['created_by', 'last_edit_by']);
+            $table->dropColumn('protected');
         });
     }
 };

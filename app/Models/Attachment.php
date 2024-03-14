@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Interfaces\ProtectionContract;
+use App\Traits\HasProtection;
 use App\Traits\HasUserAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class Attachment extends Model
+class Attachment extends Model implements ProtectionContract
 {
     use HasFactory;
+    use HasProtection;
     use HasUserAttributes;
 
     protected $guarded = [];
