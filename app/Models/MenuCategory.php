@@ -25,8 +25,8 @@ class MenuCategory extends Model
         return $this->belongsToMany(
             related: MenuItem::class,
             table: 'menu_item_menu_category',
-            foreignPivotKey: 'menu_item_id',
-            relatedPivotKey: 'menu_category_id'
+            foreignPivotKey: 'menu_category_id',
+            relatedPivotKey: 'menu_item_id'
         )->withTimestamps();
     }
 
