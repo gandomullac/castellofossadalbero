@@ -50,7 +50,7 @@ class MenuCategoryResource extends Resource
                         ->label(__('castello.name'))
                         ->minLength(5)
                         ->maxLength(255)
-                        ->unique()
+                        ->unique(ignoreRecord: true)
                         ->required()
                         ->columnSpan(3),
 
