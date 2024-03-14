@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
-use Auth;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -24,6 +23,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class PostResource extends Resource
 {
@@ -36,7 +36,6 @@ class PostResource extends Resource
     public static function getLabel(): ?string
     {
         return __('castello.news');
-
     }
 
     public static function getNavigationGroup(): ?string
@@ -173,7 +172,13 @@ class PostResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('Protected')
+                    ->label(__('castello.protected'))
+                    ->disabled()
+                    ->color('grey')
+                    ->icon('heroicon-o-lock-closed')
+                    ->hidden(fn(Post $record): bool => ! $record->protected),
 
             ])
             ->bulkActions([
@@ -185,9 +190,7 @@ class PostResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-
-        ];
+        return [];
     }
 
     public static function getPages(): array
