@@ -60,6 +60,7 @@ return [
     'priority' => 'Priority',
     'archived' => 'Archived',
     'protected' => 'Protected',
+    'protect' => 'Protect',
 
 
     'priority_high' => 'High',

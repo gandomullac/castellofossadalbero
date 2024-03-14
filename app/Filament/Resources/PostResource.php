@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Tables\Actions\ProtectedLabelAction;
+use App\Filament\Tables\Actions\ProtectAction;
 use App\Models\Post;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
@@ -174,7 +174,7 @@ class PostResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                ProtectedLabelAction::make(),
+                ProtectAction::make(),
 
                 // Tables\Actions\Action::make('Protected')
                 //     ->label(__('castello.protected'))

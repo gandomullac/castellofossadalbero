@@ -61,6 +61,7 @@ return [
     'priority' => 'Priorità',
     'archived' => 'Archiviato',
     'protected' => 'Protetto',
+    'protect' => 'Proteggi',
 
     'priority_high' => 'Alta',
     'priority_medium' => 'Media',

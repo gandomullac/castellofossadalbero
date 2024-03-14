@@ -114,4 +114,9 @@ class Post extends Model implements ImageContract
                     ->orWhere('archived', false);
             });
     }
+
+    public function toggleProtected(): bool
+    {
+        return $this->update(['protected' => ! $this->protected]);
+    }
 }
