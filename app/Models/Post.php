@@ -3,17 +3,20 @@
 namespace App\Models;
 
 use App\Interfaces\ImageContract;
+use App\Interfaces\ProtectionContract;
 use App\Traits\HasExcerpt;
 use App\Traits\HasImage;
+use App\Traits\HasProtection;
 use App\Traits\HasUserAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model implements ImageContract
+class Post extends Model implements ImageContract, ProtectionContract
 {
     use HasExcerpt;
     use HasFactory;
     use HasImage;
+    use HasProtection;
     use HasUserAttributes;
 
     protected $guarded = [];
@@ -113,10 +116,5 @@ class Post extends Model implements ImageContract
                 $query->where('unpublished_at', '<', now())
                     ->orWhere('archived', false);
             });
-    }
-
-    public function toggleProtected(): bool
-    {
-        return $this->update(['protected' => ! $this->protected]);
     }
 }
