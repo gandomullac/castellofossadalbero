@@ -48,6 +48,7 @@ class UserResource extends Resource
                 TextInput::make('password')
                     ->label(__('castello.user-password'))
                     ->password()
+                    ->revealable()
                     // ->readOnlyOn('edit')
                     // ->hiddenOn('edit')
                     ->required(),
