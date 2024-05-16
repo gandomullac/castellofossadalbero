@@ -54,7 +54,7 @@
 
         @include('main.why-us')
 
-        {{-- @include('main.swimming-pool') --}}
+        @include('main.swimming-pool')
 
         @include('main.specials')
 
