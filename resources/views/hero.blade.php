@@ -8,7 +8,7 @@
         padding: 0;
     }
 
-    
+
 </style>
 
 <section id="hero" class="d-flex align-items-center" style="">
@@ -20,13 +20,13 @@
 
 
                 <h3 class="mt-3" style="color:rgb(127, 234, 255); font-variant: small-caps; ">
-                    <strong>Vieni a divertirti in piscina!</strong>
+                    <strong>Vieni a divertirti in <span style="color:rgb(245, 188, 89)">piscina</span> e partecipa ai <span style="color:rgb(245, 188, 89)"> campi solari!</span></strong>
                 </h3>
                 <h3 style="color:rgb(127, 234, 255); font-variant: small-caps; ">
                     <strong>Stagione estiva 2024 al Castello di Fossadalbero</strong>
                 </h3>
                 <h3 style="color:rgb(127, 234, 255); font-variant: small-caps; ">
-                    <strong><a href="#piscina">Clicca qui</a> per scoprire di più</strong>
+                    <strong><a href="#piscina"><span style="color:rgb(245, 188, 89)">Clicca qui</span></a> per scoprire di più</strong>
                 </h3>
 
 

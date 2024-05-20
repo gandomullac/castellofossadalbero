@@ -55,12 +55,8 @@
                     rilassarsi,
                     lontano dal caos della città e dei lidi.</p>
                   <p>
-                    <a href="assets/word/Form Associazione Castello Fossadalbero 2023.docx" download> Clicca qui per
-                      scaricare il modulo di iscrizione (Microsoft Word)</a>.
-                  </p>
-                  <p>
-                    <a href="assets/word/Castello2023piscina.docx" download> Clicca qui per
-                      la tariffazione della stagione 2023 (Microsoft Word)</a>.
+                    <a href="{{ asset('assets/pdf/brochure_piscina.pdf') }}" download> Clicca qui per
+                      scaricare la brochure della piscina 2024</a>.
                   </p>
                 </div>
                 <div class="col-lg-4 text-center order-1 order-lg-2 mb-4">

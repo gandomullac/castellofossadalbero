@@ -56,6 +56,8 @@
 
         @include('main.swimming-pool')
 
+        @include('main.summer-camp')
+
         @include('main.specials')
 
         @if ($events->count() > 0)
