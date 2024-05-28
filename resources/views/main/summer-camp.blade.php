@@ -3,10 +3,17 @@
 
       <div class="section-title">
         <h2>Attività</h2>
-        <p>Stagione 2024 in Piscina</p>
+        <p>Scoiattolo Summer Camp</p>
       </div>
 
       <div class="row">
+
+
+        <div class="col-md-5">
+            <img src="{{ asset('assets/img/scoiattolo.jpg') }}" alt="Lo scoiattolo Summer Camp" class="img-fluid">
+        </div>
+
+
         <div class="col-md-7">
 
           <p class="mb-4"> Scegli <strong>Lo Scoiattolo Summer Camp</strong> e fai vivere ai tuoi bimbi e ragazzi un'estate all'insegna del divertimento all'aria aperta!</p>
@@ -15,9 +22,7 @@
 
 
         </div>
-        <div class="col-md-5">
-          <img src="{{ asset('assets/img/scoiattolo.jpg') }}" alt="Lo scoiattolo Summer Camp" class="img-fluid">
-      </div>
+
 
     </div>
-  </section>
+</section>
