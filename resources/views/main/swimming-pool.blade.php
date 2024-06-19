@@ -10,7 +10,10 @@
         <div class="col-md-7">
           <p class="mb-4">
             Anche quest'anno con l'arrivo della bella stagione la piscina del Castello di Fossadalbero si apre al pubblico.
-          </p> 
+          </p>
+          <p>
+            Gli orari della piscina sono dalle <strong>9:00 alle 19:00, dal lunedì alla domenica</strong>.
+          </p>
             <h6>Abbonamenti</h6>
           <ul>
             <li>
@@ -26,7 +29,7 @@
               Abbondamento bambini mensile - € 80,00
             </li>
           </ul>
-           
+
           <h6 class="mt-4">Entrate giornaliere</h6>
           <ul>
             <li>
@@ -53,23 +56,23 @@
               Bambini da 6 a 14 anni - € 5,00
             </li>
           </ul>
-           
+
           <h6 class="mt-4">Servizi inclusi</h6>
           <ul>
             <li>
               Lettini e ombrelloni.
             </li>
           </ul>
-          
+
           <h6 class="mt-4">Sport</h6>
           <p>Fanno parte della struttura sportiva campi da basket, tennis, calcetto, beach volley.</p>
-          
+
           <h6 class="mt-4">Ristorazione</h6>
           <ul>
             <li>Chiringuito bar per apertivi e pranzi a bordo piscina</li>
             <li>Ristorante all'interno del Castello e nel parco secolare</li>
           </ul>
-           
+
           <p>
             <a href="{{ asset('assets/pdf/brochure_piscina.pdf') }}" download> Clicca qui per
               scaricare la brochure completa (pdf)</a>.
