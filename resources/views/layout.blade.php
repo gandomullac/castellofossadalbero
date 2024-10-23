@@ -56,7 +56,7 @@
 
         @include('main.swimming-pool')
 
-        @include('main.summer-camp')
+        {{-- @include('main.summer-camp') --}}
 
         @include('main.specials')
 

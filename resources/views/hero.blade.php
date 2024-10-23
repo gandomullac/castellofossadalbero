@@ -19,7 +19,7 @@
                 <h2>Assapora i gusti locali e immergiti nella storia della delizia estense!</h2>
 
 
-                <h3 class="mt-3" style="color:rgb(127, 234, 255); font-variant: small-caps; ">
+                {{-- <h3 class="mt-3" style="color:rgb(127, 234, 255); font-variant: small-caps; ">
                     <strong>Vieni a divertirti in <span style="color:rgb(245, 188, 89)">piscina</span> e partecipa ai <span style="color:rgb(245, 188, 89)"> campi solari!</span></strong>
                 </h3>
                 <h3 style="color:rgb(127, 234, 255); font-variant: small-caps; ">
@@ -27,7 +27,7 @@
                 </h3>
                 <h3 style="color:rgb(127, 234, 255); font-variant: small-caps; ">
                     <strong><a href="#piscina"><span style="color:rgb(245, 188, 89)">Clicca qui</span></a> per scoprire di più</strong>
-                </h3>
+                </h3> --}}
 
 
                 {{-- <h3 style="color:rgb(255, 238, 1); font-variant: small-caps; ">
