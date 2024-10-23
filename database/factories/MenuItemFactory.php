@@ -29,7 +29,7 @@ class MenuItemFactory extends Factory
                 height: 480,
                 category: null,
                 fullPath: false,
-                word: 'Test MenuItem'
+                word: 'Test MenuItem',
             ),
         ];
     }

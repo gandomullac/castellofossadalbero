@@ -96,7 +96,7 @@ class PostResource extends Resource
                         Checkbox::make('protected')
                             ->label(__('castello.protected'))
                             ->hidden(
-                                fn(): bool => ! Auth::user()->isAdmin()
+                                fn(): bool => ! Auth::user()->isAdmin(),
                             ),
 
                     ]),

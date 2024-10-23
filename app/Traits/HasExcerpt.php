@@ -25,7 +25,7 @@ trait HasExcerpt
         $content = str_replace(
             ["<br>", "</p>"],
             '  ',
-            $this->{$this->getExcerptProperty()['propriety']}
+            $this->{$this->getExcerptProperty()['propriety']},
         );
 
         return strip_tags($content);

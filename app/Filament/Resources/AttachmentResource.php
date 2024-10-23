@@ -62,7 +62,7 @@ class AttachmentResource extends Resource
                         Checkbox::make('protected')
                             ->label(__('castello.protected'))
                             ->hidden(
-                                fn(): bool => ! Auth::user()->isAdmin()
+                                fn(): bool => ! Auth::user()->isAdmin(),
                             ),
                     ])->columns(2),
                 ])->columnSpanFull(),

@@ -36,7 +36,7 @@ class MenuItem extends Model implements ImageContract
             related: MenuCategory::class,
             table: 'menu_item_menu_category',
             foreignPivotKey: 'menu_item_id',
-            relatedPivotKey: 'menu_category_id'
+            relatedPivotKey: 'menu_category_id',
         )->withTimestamps();
     }
 
@@ -46,7 +46,7 @@ class MenuItem extends Model implements ImageContract
             related: Allergen::class,
             table: 'allergen_menu_item',
             foreignPivotKey: 'allergen_id',
-            relatedPivotKey: 'menu_item_id'
+            relatedPivotKey: 'menu_item_id',
         );
     }
 
@@ -61,7 +61,7 @@ class MenuItem extends Model implements ImageContract
 
         $shortContent = mb_substr($content, 0, 60);
 
-        if(mb_strlen($content) > 60) {
+        if (mb_strlen($content) > 60) {
             $shortContent .= '...';
         }
 

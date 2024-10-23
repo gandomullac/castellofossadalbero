@@ -30,7 +30,7 @@ class PostFactory extends Factory
                 height: 480,
                 category: null,
                 fullPath: false,
-                word: 'Test Post'
+                word: 'Test Post',
             ),
             'priority' => $this->faker->randomElement([-1, 0, 1]),
             'published_at' => $this->faker->dateTimeBetween('-1 year', '+1 year'),

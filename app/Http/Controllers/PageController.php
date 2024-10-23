@@ -35,7 +35,7 @@ class PageController extends Controller
             'events',
             'menuItems',
             'menuCategories',
-            'reviews'
+            'reviews',
         ));
     }
 }

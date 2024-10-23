@@ -15,7 +15,7 @@ class Allergen extends Model
             related: Allergen::class,
             table: 'allergen_menu_item',
             foreignPivotKey: 'allergen_id',
-            relatedPivotKey: 'menu_item_id'
+            relatedPivotKey: 'menu_item_id',
         );
     }
 

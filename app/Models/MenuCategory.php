@@ -26,7 +26,7 @@ class MenuCategory extends Model
             related: MenuItem::class,
             table: 'menu_item_menu_category',
             foreignPivotKey: 'menu_category_id',
-            relatedPivotKey: 'menu_item_id'
+            relatedPivotKey: 'menu_item_id',
         )->withTimestamps();
     }
 
