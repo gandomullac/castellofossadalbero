@@ -1,4 +1,6 @@
-Repository of the Ferrarese Delizia Fossadalbero Castle website. It is a Single Page Application based on Laravel and Filament, with front-end written using Blade.
+Repository of the Ferrarese Delizia Fossadalbero Castle website.
+
+This project consists of a Single Page Application based on Laravel and Filament, with front-end written using Blade.
 
 ## Security Vulnerabilities
 
