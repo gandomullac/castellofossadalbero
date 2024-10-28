@@ -37,7 +37,6 @@ return [
     'key' => 'key',
     'value' => 'value',
 
-    // TODO: consider another name
     'setting' => 'setting',
     'settings' => 'settings',
     'excerpt' => 'excerpt',
@@ -61,7 +60,6 @@ return [
     'archived' => 'Archived',
     'protected' => 'Protected',
     'protect' => 'Protect',
-
 
     'priority_high' => 'High',
     'priority_medium' => 'Medium',

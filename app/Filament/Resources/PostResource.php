@@ -14,10 +14,8 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -96,7 +94,7 @@ class PostResource extends Resource
                         Checkbox::make('protected')
                             ->label(__('castello.protected'))
                             ->hidden(
-                                fn(): bool => ! Auth::user()->isAdmin(),
+                                fn (): bool => ! Auth::user()->isAdmin(),
                             ),
 
                     ]),
@@ -115,7 +113,7 @@ class PostResource extends Resource
                     ->label(__('castello.image_path')),
                 TextColumn::make('title')
                     ->label(__('castello.title'))
-                    ->description(fn(Post $record): string => $record->excerpt)
+                    ->description(fn (Post $record): string => $record->excerpt)
                     ->wrap()
                     ->sortable(),
                 TextColumn::make('subtitle')
@@ -124,7 +122,7 @@ class PostResource extends Resource
                 TextColumn::make('publishStatus')
                     ->label(__('castello.publish_status'))
                     ->badge()
-                    ->color(fn(string $state): string => match ($state) {
+                    ->color(fn (string $state): string => match ($state) {
                         __('castello.expired') => 'gray',
                         __('castello.scheduled') => 'warning',
                         __('castello.published') => 'success',
@@ -135,12 +133,12 @@ class PostResource extends Resource
                 IconColumn::make('priority')
                     ->label(__('castello.priority'))
                     ->sortable()
-                    ->icon(fn(string $state): string => match ($state) {
+                    ->icon(fn (string $state): string => match ($state) {
                         '1' => 'heroicon-o-arrow-up-circle',
                         '0' => 'heroicon-o-minus-circle',
                         '-1' => 'heroicon-o-arrow-down-circle',
                     })
-                    ->color(fn(string $state): string => match ($state) {
+                    ->color(fn (string $state): string => match ($state) {
                         '1' => 'danger',
                         '0' => 'info',
                         '-1' => 'warning',

@@ -15,20 +15,20 @@ class ProtectAction extends Action
     {
         parent::setUp();
 
-        $this->label(fn(Model $record): string => $record->protected ? __('castello.protected') : __('castello.protect'));
+        $this->label(fn (Model $record): string => $record->protected ? __('castello.protected') : __('castello.protect'));
 
-        $this->color(fn(Model $record): string => $record->protected ? 'grey' : 'info');
+        $this->color(fn (Model $record): string => $record->protected ? 'grey' : 'info');
 
-        $this->icon(fn(Model $record): string => $record->protected ? 'heroicon-o-lock-closed' : 'heroicon-o-lock-open');
+        $this->icon(fn (Model $record): string => $record->protected ? 'heroicon-o-lock-closed' : 'heroicon-o-lock-open');
 
-        $this->hidden(fn(Model $record): bool => ! $record->protected && ! Auth::user()->isAdmin());
+        $this->hidden(fn (Model $record): bool => ! $record->protected && ! Auth::user()->isAdmin());
 
-        $this->disabled(fn(): bool => ! Auth::user()->isAdmin());
+        $this->disabled(fn (): bool => ! Auth::user()->isAdmin());
 
         $this->action(function (): void {
-            $result = $this->process(static fn(Model $record) => $record->toggleProtected());
+            $result = $this->process(static fn (Model $record) => $record->toggleProtected());
 
-            if ( ! $result) {
+            if (! $result) {
                 $this->failure();
 
                 return;

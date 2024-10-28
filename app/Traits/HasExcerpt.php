@@ -23,7 +23,7 @@ trait HasExcerpt
         // Converto i caratteri di newline in un doppio spazio.
 
         $content = str_replace(
-            ["<br>", "</p>"],
+            ['<br>', '</p>'],
             '  ',
             $this->{$this->getExcerptProperty()['propriety']},
         );

@@ -67,6 +67,4 @@ class MenuItem extends Model implements ImageContract
 
         return $shortContent;
     }
-
-
 }

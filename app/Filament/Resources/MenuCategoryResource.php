@@ -61,13 +61,12 @@ class MenuCategoryResource extends Resource
                         ->maxValue(10)
                         ->default(MenuCategory::highestAvailableOrder())
                         ->afterStateHydrated(function (string $operation, string $state, Set $set, Get $get): void {
-                            if ('edit' === $operation) {
+                            if ($operation === 'edit') {
                                 return;
                             }
 
                             // ad ogni submit aggiorno il valore di order.
                             $set('order', MenuCategory::highestAvailableOrder());
-
                         })
                         ->required()
                         ->columnSpan(1),

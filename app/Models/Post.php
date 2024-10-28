@@ -44,25 +44,23 @@ class Post extends Model implements ImageContract, ProtectionContract
 
     public function isPublished()
     {
-        return
-            false === $this->archived &&
+        return $this->archived === false &&
             ! $this->isExpired() &&
             ! $this->isScheduled();
     }
 
     public function isScheduled()
     {
-        return false === $this->archived &&
-            null !== $this->published_at &&
+        return $this->archived === false &&
+            $this->published_at !== null &&
             $this->published_at > now();
     }
 
     public function isExpired()
     {
-        return
-            null !== $this->unpublished_at &&
+        return $this->unpublished_at !== null &&
             $this->unpublished_at->isPast() &&
-            (false === $this->archived);
+            ($this->archived === false);
     }
 
     public function getPublishStatusAttribute()

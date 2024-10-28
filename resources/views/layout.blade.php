@@ -1,8 +1,3 @@
-{{-- {{ dd($events) }} --}}
-{{-- {{ dd($menuItems) }} --}}
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 

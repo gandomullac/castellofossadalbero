@@ -40,7 +40,6 @@ return [
     'key' => 'Chiave',
     'value' => 'Valore',
 
-    // TODO: Valutare un altro nome
     'excerpt' => 'Estratto',
 
     'published_news' => 'News Pubblicate',

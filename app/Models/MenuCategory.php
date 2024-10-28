@@ -17,7 +17,6 @@ class MenuCategory extends Model
     public static function highestAvailableOrder()
     {
         return self::max('order') + 1;
-
     }
 
     public function menuItems()

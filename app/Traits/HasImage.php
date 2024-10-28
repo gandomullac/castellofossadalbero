@@ -13,7 +13,7 @@ trait HasImage
 
     public function getImageUrlAttribute()
     {
-        if (null === $this->image_path) {
+        if ($this->image_path === null) {
             return asset($this->getImagePlaceholder());
         }
         if (Storage::disk('public')->exists($this->image_path)) {
@@ -24,7 +24,7 @@ trait HasImage
 
     public function getImageAttribute()
     {
-        if (null === $this->image_path) {
+        if ($this->image_path === null) {
             return asset($this->getImagePlaceholder());
         }
         if (Storage::disk('public')->exists($this->image_path)) {
@@ -33,7 +33,6 @@ trait HasImage
         return asset($this->getImagePlaceholder());
     }
 
-
     protected static function bootHasImage(): void
     {
         static::deleted(function ($model): void {
@@ -41,7 +40,7 @@ trait HasImage
         });
 
         static::updating(function ($model): void {
-            if ($model->isDirty('image_path') && (null !== $model->getOriginal('image_path'))) {
+            if ($model->isDirty('image_path') && ($model->getOriginal('image_path') !== null)) {
                 Storage::disk('public')->delete($model->getOriginal('image_path'));
             }
         });

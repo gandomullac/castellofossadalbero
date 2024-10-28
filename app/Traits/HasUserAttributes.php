@@ -14,5 +14,4 @@ trait HasUserAttributes
             $model->last_edit_by = auth()->id();
         });
     }
-
 }

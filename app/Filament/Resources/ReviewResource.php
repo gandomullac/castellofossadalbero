@@ -91,7 +91,7 @@ class ReviewResource extends Resource
                 IconColumn::make('url')
                     ->label(__('castello.url'))
                     ->icon('heroicon-o-link')
-                    ->url(fn($record) => url($record->url))
+                    ->url(fn ($record) => url($record->url))
                     ->openUrlInNewTab(),
             ])
             ->filters([

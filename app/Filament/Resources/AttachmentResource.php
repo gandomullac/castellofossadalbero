@@ -29,7 +29,6 @@ class AttachmentResource extends Resource
     public static function getLabel(): ?string
     {
         return __('castello.attachment');
-
     }
 
     public static function getPluralLabel(): ?string
@@ -53,7 +52,7 @@ class AttachmentResource extends Resource
                             ->disk('public')
                             ->directory('uploads/attachments')
                             ->getUploadedFileNameForStorageUsing(
-                                fn(TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                                fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
                                     ->prepend(now()->timestamp . '_'),
                             )
                             ->storeFileNamesIn('name')
@@ -62,7 +61,7 @@ class AttachmentResource extends Resource
                         Checkbox::make('protected')
                             ->label(__('castello.protected'))
                             ->hidden(
-                                fn(): bool => ! Auth::user()->isAdmin(),
+                                fn (): bool => ! Auth::user()->isAdmin(),
                             ),
                     ])->columns(2),
                 ])->columnSpanFull(),
@@ -75,7 +74,7 @@ class AttachmentResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->label(__('castello.name'))
-                    ->url(fn($record) => url($record->fileUrl))
+                    ->url(fn ($record) => url($record->fileUrl))
                     ->openUrlInNewTab()
                     ->searchable()
                     ->wrap()
