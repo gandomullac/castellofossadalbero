@@ -1,4 +1,4 @@
-Repository of the Ferrarese Delizia Fossadalbero Castle website.
+Repository for the Fossadalbero Castle website, showcasing the historic 15th-century estate built by the Este family.
 
 This project consists of a Single Page Application based on Laravel and Filament, with front-end written using Blade.
 
